@@ -8,7 +8,7 @@ router.get("/", function(req,res){
     if(req.isAuthenticated()) {
         return res.redirect("/dashboard");
     }
-    res.redirect("/signup");
+    res.redirect("/login");
 });
 
 router.get("/signup",function(req,res){
@@ -27,7 +27,7 @@ router.get("/login",function(req,res){
 
 router.get("/dashboard",function(req,res){
     if(req.isAuthenticated()===false) {
-        return res.redirect("/signup");
+        return res.redirect("/login");
     }
     res.render("dashboard.ejs");
 });

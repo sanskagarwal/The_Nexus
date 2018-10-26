@@ -114,7 +114,6 @@ body{
 
 
 #terminalwindow{
-    
     background-image: url("/images/code.png");
     height:8vh;
     width:100%;
@@ -122,6 +121,7 @@ body{
     background-repeat: no-repeat;
     background-size:contain;
     background-position:center;
+    
 }
 
 /*Started by Swaraj Terminal-CSS*/
@@ -265,4 +265,425 @@ background-color:grey;}
     width: 14vw;
     margin-top: -5vh;
 }
+
+
+.player {
+    background: #242628;
+    background: -moz-linear-gradient(top, #242628 0%, #000000 100%);
+    background: -webkit-linear-gradient(top, #242628 0%, #000000 100%);
+    background: linear-gradient(to bottom, #242628 0%, #000000 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#242628', endColorstr='#000000', GradientType=0);
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .splitTxt,
+  .icons {
+    color: #ffffff;
+  }
+  
+  .trackDetails {
+    text-align: center;
+    margin: 4px auto;
+    width: 300px;
+    height: 38px;
+    border: 1px solid #1e1e1e;
+    background: #000000;
+    border-radius: 4px;
+    padding: 6px;
+  }
+  
+  .title,
+  .artist {
+    color: #999;
+    -moz-user-select: none;
+    left: 167px;
+  }
+  
+  .title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .artist {
+    font-size: 12px;
+  }
+  #musicplayer{
+    position:absolute;
+    display:none;
+    margin:0px;
+    left:20%;
+    top:20%;
+}
+  
+  .playlistIcon,
+  .volumeIcon {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    height: 34px;
+    width: 32px;
+  }
+  
+  .volumeIcon {
+    bottom: 6px;
+    display: block;
+  }
+  
+  .controls {
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    margin: 0 auto;
+  }
+  #musicclose{
+    background-color: black;
+    width :100%;
+    height: 10 px;
+    margin:0px;
+    color:white;
+    }
+    #musicclosebutton{
+        color:white;
+    }
+
+  .controls .play,
+  .controls .pause,
+  .controls .rew,
+  .controls .fwd {
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  
+  .controls .play,
+  .controls .pause,
+  .plIcon,
+  .volumeIcon {
+    font-size: 26px;
+  }
+  
+  .controls .pause {
+    display: none;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .controls .visible {
+    display: inline-block;
+  }
+  
+  .tracker {
+    cursor: pointer;
+    height: 5px;
+  }
+  
+  .ui-widget.ui-widget-content {
+    border: 0;
+  }
+  
+  .ui-corner-all {
+    border-radius: 0;
+  }
+  
+  .ui-slider .ui-slider-handle {
+    display: block;
+    height: 14px;
+    border-radius: 14px;
+    width: 14px;
+    -webkit-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+  }
+  
+  .tracker .ui-slider-range {
+    background: #00dbde;
+    background: -moz-linear-gradient(left, #00dbde 0%, #fc00ff 100%);
+    background: -webkit-linear-gradient(left, #00dbde 0%, #fc00ff 100%);
+    background: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00dbde', endColorstr='#fc00ff', GradientType=1);
+    -webkit-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+    height: 100%;
+    top: 0;
+  }
+  
+  .volume .ui-slider-range {
+    background: #333333;
+    -webkit-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+  }
+  
+  .volume.ui-widget-content {
+    background: #00dbde;
+  }
+  
+  .ui-slider-handle {
+    cursor: pointer;
+    height: 10px;
+    margin-left: -5px;
+    top: 2px;
+    width: 10px;
+    z-index: 2;
+  }
+  
+  .volume {
+    display: none;
+    right: 12px;
+    position: absolute;
+    top: 35px;
+    height: 100px;
+    width: 20px;
+    box-shadow: 0px 0px 10px #000;
+  }
+  
+  .volume .ui-slider-handle {
+    display: none;
+  }
+  
+  .playlist {
+    background-color: #1e1e1e;
+    list-style-type: none;
+    padding-bottom: 10px;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    -webkit-transition: all ease-in-out .1s;
+    transition: all ease-in-out .1s;
+  }
+  
+  .playlist li {
+    color: #eeeeee;
+    cursor: pointer;
+    margin-bottom: 4px;
+    padding: 6px 12px;
+    -webkit-transition: all ease-in-out .1s;
+    transition: all ease-in-out .1s;
+  }
+  
+  .playlist li:hover {
+    background: #333333;
+  }
+  
+  .playlist li.active {
+    font-weight: bold;
+    background: #000000;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default,
+  .ui-button,
+  html .ui-button.ui-state-disabled:hover,
+  html .ui-button.ui-state-disabled:active {
+    border: 0;
+  }
+  
+  .ui-widget-content {
+    background: #666666;
+  }
+  
+  .cr {
+    color: #f9f9f9;
+    text-align: center;
+  }
+
+  /*calender starts*/
+  #clockbox {
+    font-size: 0.9em;
+    margin-left: 42vw;
+    width: 14vw;
+}
+
+#underclock {
+	display:none;
+    width: 30vw;
+    height: 42vh;
+    margin: 0 auto;
+    background-color: #292828;
+    border:1px black solid;
+    border-radius:3px;
+}
+
+.calendar {
+    width: 100%;
+    height: 100%;
+    float: right;
+}
+
+.calendar__month {
+    font-size: 1em;
+    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+.cal-month__previous, .cal-month__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.cal-month__previous:hover, .cal-month__next:hover {
+    background-color: #42A5F5;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+    font-weight: 800;
+    color: #111;
+}
+
+.cal-month__next {
+    right: 0;
+}
+
+.cal-month__current {
+    font-weight: 600;
+    text-align: center;
+    color: #e1e1e1;
+}
+
+.cal-head__day,
+.cal-body__day {
+	text-align:center;
+    font-size: 0.8em;
+    display: inline-block;
+    width: 14.25%;
+    height: 100%;
+    float: left;
+}
+
+.cal-body__week,
+.calendar__head {
+    display: block;
+    height: 5vh;
+    width: 100%;
+}
+
+.calendar__head {
+    position: relative;
+}
+
+.cal-body__day {
+    color: #777;
+    line-height: 6vh;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cal-day__month--current {
+    color: #e1e1e1;
+}
+
+.cal-day__day--today {
+    font-weight: 800;
+    color: #2196f3;
+}
+
+.cal-day__day--selected {
+    background-color: #2196f3;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.75);
+    border-radius: 100%;
+    color: #111;
+}
+@media only screen and (max-width: 1000px) {
+    #underclock {
+        height: 33vh;
+    }
+    .calendar__month {
+        font-size: 0.8em;
+    }
+    .cal-head__day, .cal-body__day {
+        font-size: 0.7em;
+    }
+    .cal-body__week, .calendar__head {
+        height: 4vh;
+    }
+    .cal-body__day {
+        line-height: 4vh;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    #underclock {
+        height: 29vh;
+    }
+    .calendar__month {
+        font-size: 0.7em;
+    }
+    .cal-head__day, .cal-body__day {
+        font-size: 0.6em;
+    }
+    .cal-body__week, .calendar__head {
+        height: 3.5vh;
+    }
+    .cal-body__day {
+        line-height: 3.5vh;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #underclock {
+        height: 25vh;
+    }
+    .calendar__month {
+        font-size: 0.6em;
+    }
+    .cal-head__day, .cal-body__day {
+        font-size: 0.5em;
+    }
+    .cal-body__week, .calendar__head {
+        height: 3vh;
+    }
+    .cal-body__day {
+        line-height: 3vh;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #underclock {
+        height: 21vh;
+    }
+    .calendar__month {
+        font-size: 0.4em;
+    }
+    .cal-head__day, .cal-body__day {
+        font-size: 0.3em;
+    }
+    .cal-body__week, .calendar__head {
+        height: 2vh;
+    }
+    .cal-body__day {
+        line-height: 2vh;
+    }
+}
+#tophidearrow {
+    display:none;
+    position:absolute;
+    top:5.5%;
+    left: 49.5%;
+    z-index:2;
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-bottom: 16px solid #292828;
+      border-radius:3px;
+    }
+
+    /*calender ends*/
 

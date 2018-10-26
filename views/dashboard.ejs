@@ -1,45 +1,105 @@
 <% include partials/header.ejs %>
+
 <div id="top-navi">
-        <div id="topside">
-            <div id="iconsidetop"></div>
+    <div id="topside">
+        <div id="iconsidetop"></div>
+    </div>
+    <div id="undertopside">
+        <div id="tophidearrow"></div>
+        <div id="tophide">
+            <div id="hortwo"></div>
+            <p class="topnav"></p>
+            <p class="topnav"></p>
+            <p class="topnav"></p>
+            <p class="topnav"></p>
+            <div id="horone"></div><br><br>
+            <div class="topnavrightcircle" id="circleone"></div>
+            <div class="topnavrightcircle" id="circletwo"></div>
+            <div class="topnavrightcircle" id="circletwo"></div>
+            <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
         </div>
-        <div id="undertopside">
-            <div id="tophidearrow"></div>
-            <div id="tophide">
-                <div id="hortwo"></div>
-                <p class="topnav"></p>
-                <p class="topnav"></p>
-                <p class="topnav"></p>
-                <p class="topnav"></p>
-                <div id="horone"></div><br><br>
-                <div class="topnavrightcircle" id="circleone"></div>
-                <div class="topnavrightcircle" id="circletwo"></div>
-                <div class="topnavrightcircle" id="circletwo"></div>
-                <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
+    </div>
+        <!--calender starts-->
+    <div id="clockbox"></div>
+    <div id="tophidearrow"></div>
+    <div id="underclock">
+        <div class="calendar">
+            <div class="calendar__month">
+                <div class="cal-month__previous"><</div>
+                <div class="cal-month__current"></div>
+                <div class="cal-month__next">></div>
+            </div>
+            <div class="calendar__head">
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+                <div class="cal-head__day"></div>
+            </div>
+            <div class="calendar__body">
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
+                <div class="cal-body__week">
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                <div class="cal-body__day"></div>
+                </div>
             </div>
         </div>
-    
-        <div id="clockbox"></div>
-    
-       
-    <script>
-            $("#clockbox").on("click",function(){
-                if($('#underclock').css('display') == 'none') {
-                    $("#underclock").css("display","block");
-                } else {
-                    $("#underclock").css("display","none");
-                }
-            });
-            $("#topside").on("click",function(){
-                if($('#undertopside').css('display') == 'none') {
-                    $("#undertopside").css("display","block");
-                } else {
-                    $("#undertopside").css("display","none");
-                }
-            });
-    </script>
+    </div>
 </div>
     
+    <!--calender ends-->
+
 <div id="side-nav">
     <div id="username" style="color:white;">Ubuntu</div>
     <div id="firefox"></div>
@@ -64,12 +124,18 @@
   </div>
   <div id="mainfilemhome">This is Home</div>
   <div id="mainfilemdocuments">This is Documents  <br><input type="file" ></div>
-  <div id="mainfilemuploads">This is Uploads</div>
+  <div id="mainfilemuploads">
+        <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
+        <input type="file" name="userFile" id="userFile"/>
+        <input type="submit" value="Upload Image" name="submit">
+        </form>
+
+  </div>
   <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
   <div id="mainfilempictures">This is Pictures <br><input type="file" ></div>
   <div id="mainfilemvideos"> This is Videos <br><input type="file" ></div>
   <div id="mainfilemtrash">This is Trash</div>
-  </div>
+</div>
 <div id="musicplayer">
         <p id="musicclose"><button id="musicclosebutton" onclick="func10()">close</button></p>
         <div class="player">
@@ -80,7 +146,7 @@
         <div class="trackDetails ">
           <span class="artist"></span>
           <span class="splitTxt"> - </span>
-          <span class="title"></span>
+          <span class="title1"></span>
         </div>
       
         <div class="controls">
@@ -106,31 +172,20 @@
         <div class="tracker"></div>
       </div>
       <ul class="playlist" id="playlist">
-        <li audioURL="music/Eastside.mp3" artist="Khalid,Halsey">Eastside</li>
-        <li audioURL="music/Promises.mp3" artist="Calvin Harris">Promises</li>
-        <li audioURL="music/In My Feelings.mp3" artist="Drake">In My Feelings</li>
-        <li audioURL="music/Shotgun.mp3" artist="George Ezra">Shotgun</li>
+        <li audioURL="music/Back In Black.mp3" artist="AC/DC">Back In Black</li>
+        <li audioURL="music/Demons.mp3" artist="Imagine Dragons">Demons</li>
+        <li audioURL="music/Hotel California.mp3" artist="Eagles">Hotel California</li>
+        <li audioURL="music/Uptown Funk.mp3" artist="Bruno Mars">Uptown Funk</li>
       </ul>
 </div>
-
-
-<script>
-    $("#music").on("click", function(){
-        if ($("#musicplayer").css("display")==="none"){
-            $("#musicplayer").css("display","block");
-        } else {
-            $("#musicplayer").css("display","none");
-        }
-    });
-    
-</script>
 <div class="ubuntu-terminal">
-        <div class="terminal">
-            <div class="terminal-text">
-                <pre id="terminal-console"></pre>
-            </div>
+    <div class="terminal">
+        <div class="terminal-text">
+            <pre id="terminal-console"></pre>
         </div>
     </div>
+</div>
+
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
 <% include partials/footer.ejs %>
