@@ -35,7 +35,41 @@ app.use(function(req,res,next){
 // Routes
 var indexRoute=require("./routes/index.js");
 app.use(indexRoute);
- 
+
+
+app.get("/upload",function(req,res){
+    res.render("upload.ejs");
+});
+// Multer
+var crypto = require('crypto');
+var mime = require('mime');
+var multer  = require('multer');
+var fs = require('fs');
+var hashe,origname,fileExten;
+
+var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, './uploads/')
+    },
+    filename: function(req, file, callback) {
+        origname=file.originalname;
+        fileExten=mime.getExtension(file.mimetype);
+        hashe=crypto.randomBytes(16).toString('hex');
+        callback(null, hashe + '.' + fileExten);
+    }
+});
+var upload = multer({storage: storage}).single('userFile');
+
+
+app.post('/uploadTextfile',function(req,res){
+    upload(req,res,function(err) {
+        if(err) {
+            console.log(err);
+            return res.redirect("/");
+        }
+        console.log("done");
+    });
+});
 
 app.listen(3000,function(){
     console.log("Serving on PORT 3000");
