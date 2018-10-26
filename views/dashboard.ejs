@@ -10,4 +10,23 @@
     <div id="minebaap"></div>
 </div>
 
+<div class="ubuntu-terminal">
+        <div class="terminal">
+            <div class="terminal-text">
+                <pre id="terminal-console"></pre>
+            </div>
+        </div>
+    </div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script>
+    $("#firefox").on("click",function(){
+        if($(".ubuntu-terminal").css("display")==="none") {
+            $(".ubuntu-terminal").css("display","block");
+        } else {
+            $(".ubuntu-terminal").css("display","none");
+        }
+});
+</script>
+
 <% include partials/footer.ejs %>

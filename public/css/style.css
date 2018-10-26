@@ -1,3 +1,4 @@
+/*started by Soham side-nav*/
 *{
     margin:0;
     padding:0;
@@ -68,3 +69,39 @@ body{
 #minebaap{
     
 }
+
+/*Started by Swaraj Terminal-CSS*/
+
+.ubuntu-terminal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+
+.terminal {
+    width: 600px;
+    height: 400px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,.5);
+    background: rgba(56, 4, 40, .9);
+    margin: 10% auto;
+  }
+
+.terminal-text {
+    color: #ddd;
+}
+
+.terminal p {
+    line-height: 1.4em;
+    margin: 0;
+    font-weight: 500;
+}
+
+#terminal-console {
+    font-family: sans-serif;
+    color: white;
+    font-size: 0.8em;
+  }
+
+
