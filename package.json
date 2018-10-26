@@ -1,0 +1,23 @@
+{
+  "name": "the_nexus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackabit18/The_Nexus.git"
+  },
+  "author": "Sanskar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackabit18/The_Nexus/issues"
+  },
+  "homepage": "https://github.com/hackabit18/The_Nexus#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
