@@ -157,6 +157,20 @@ body{
     color: white;
     font-size: 0.8em;
   }
+
+  .line:before {
+    content: attr(data-user)"@"attr(data-host)":"attr(data-path)"# ";
+    color: #87d441;
+    font-weight: 700;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .currline:after {
+    background: rgba(255, 255, 255, 0.3);
+    color: transparent;
+    content: ".";
+  }
+
   /*Anshuman added file manager*/
   #mainfilem{
     display:none;
@@ -243,4 +257,12 @@ left:15em;}
 background-color:grey;}
 
 /* Player CSS Soham */
+
+/*Started by Swaraj-DateTime*/
+#clockbox {
+    font-size: 0.9em;
+    margin-left: 42vw;
+    width: 14vw;
+    margin-top: -5vh;
+}
 
