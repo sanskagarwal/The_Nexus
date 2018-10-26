@@ -1,0 +1,24 @@
+
+<form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
+    <input type="file" name="userFile" />
+    <input type="submit" value="Upload" name="submit">
+</form>
+
+<script>
+$(document).ready(function() {
+    $('#uploadForm').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                status('Error: ' + xhr.status);
+            },
+            success: function(response) {
+                $("#status").empty().text(response);
+                console.log(response);
+            }
+    });
+    return false;
+    });    
+});
+</script>
+
+<% include partials/footer.ejs %>
