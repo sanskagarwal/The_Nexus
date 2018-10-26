@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
+public/music/*
+=======
 uploads
+>>>>>>> b2d09e3cd139d11bf312c139217e7464f45dc5b6
