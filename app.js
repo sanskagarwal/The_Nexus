@@ -37,9 +37,6 @@ var indexRoute=require("./routes/index.js");
 app.use(indexRoute);
 
 
-app.get("/uploadTextfile",function(req,res){
-    res.render("upload.ejs");
-});
 // Multer
 var crypto = require('crypto');
 var mime = require('mime');

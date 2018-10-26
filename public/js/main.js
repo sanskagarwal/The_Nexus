@@ -77,3 +77,42 @@ $("#firefox").on("click",function(){
             $(".ubuntu-terminal").css("display","none");
         }
 });
+$("#music").on("click", function(){
+    if ($("#musicplayer").css("display")==="none"){
+        $("#musicplayer").css("display","block");
+    } else {
+        $("#musicplayer").css("display","none");
+    }
+});
+
+$("#clockbox").on("click",function(){
+    if($('#underclock').css('display') == 'none') {
+        $("#underclock").css("display","block");
+    } else {
+        $("#underclock").css("display","none");
+    }
+});
+$("#topside").on("click",function(){
+    if($('#undertopside').css('display') == 'none') {
+        $("#undertopside").css("display","block");
+    } else {
+        $("#undertopside").css("display","none");
+    }
+});
+
+$(document).ready(function() {
+    $('#uploadForm').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#34;" + response.slice(ind+1,response.length) +"&#34;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+    });
+    return false;
+    });    
+});
