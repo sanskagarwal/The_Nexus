@@ -7,7 +7,59 @@
     <div id="music"></div>
     <div id="mail"></div>
     <div id="calculator"></div>
+    <div id="texteditor"></div>
     <div id="minebaap"></div>
 </div>
+<div id="musicplayer">
+        <p id="musicclose"><button id="musicclosebutton" onclick="func10()">close</button></p>
+        <div class="player">
+        <div class="playlistIcon">
+          <i class="icons ion-android-list plIcon"></i>
+        </div>
+        <div class="clearfix"></div>
+        <div class="trackDetails ">
+          <span class="artist"></span>
+          <span class="splitTxt"> - </span>
+          <span class="title"></span>
+        </div>
+      
+        <div class="controls">
+          <div class="rew">
+            <i class="icons ion-ios-skipbackward"></i>
+          </div>
+          <div class="play">
+            <i class="icons ion-ios-play"></i>
+          </div>
+          <div class="pause">
+            <i class="icons ion-ios-pause"></i>
+          </div>
+      
+          <div class="fwd">
+            <i class="icons ion-ios-skipforward"></i>
+          </div>
+        </div>
+        <div class="volumeIcon">
+          <i class="icons ion-android-volume-up"></i>
+          <div class="volume"></div>
+        </div>
+      
+        <div class="tracker"></div>
+      </div>
+      <ul class="playlist" id="playlist">
+        <li audioURL="music/Eastside.mp3" artist="Khalid,Halsey">Eastside</li>
+        <li audioURL="music/Promises.mp3" artist="Calvin Harris">Promises</li>
+        <li audioURL="music/In My Feelings.mp3" artist="Drake">In My Feelings</li>
+        <li audioURL="music/Shotgun.mp3" artist="George Ezra">Shotgun</li>
+      </ul>
+</div>
 
+<script>
+    $("#music").on("click", function(){
+        if ($("#musicplayer").css("display")==="none"){
+            $("#musicplayer").css("display","block");
+        } else {
+            $("#musicplayer").css("display","none");
+        }
+    });
+</script>
 <% include partials/footer.ejs %>

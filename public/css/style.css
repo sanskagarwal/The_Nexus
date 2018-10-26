@@ -54,17 +54,41 @@ body{
 }
 
 #music{
-    
+    background-image: url("/images/music.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center; 
 }
 
 #mail{
-    
+    background-image: url("/images/mail.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
+#texteditor{
+    background-image: url("/images/font.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
+}
 #calculator{
-    
+    background-image: url("/images/calculator.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
-#minebaap{
-    
-}
