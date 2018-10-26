@@ -130,5 +130,89 @@ body{
     color: white;
     font-size: 0.8em;
   }
+  /*Anshuman added file manager*/
+  #mainfilem{
+    display:none;
+    position:absolute;
+left:20%;
+top:15%;
+  }
+  #mainfilemleft{
+    border-top: black 1px solid;
+background-color:#292828;
+color:white;
+position:absolute;
+left:20%;
+width:20vw;
+height:65vh;
+  }
+  #mainfilemhome{
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemdocuments{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemuploads{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemmusic{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilempictures{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemvideos{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemtrash{
+    display:none;
+   height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.paragraphfilem{
+  padding:0.5em 0 1em 2em;
+  margin:0;
+}
+.paragraphfilem:hover{
+background-color:grey;}
 
 
