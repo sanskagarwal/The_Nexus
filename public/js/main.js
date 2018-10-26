@@ -77,7 +77,6 @@ $("#firefox").on("click",function(){
             $(".ubuntu-terminal").css("display","none");
         }
 });
-<<<<<<< HEAD
 $("#music").on("click", function(){
     if ($("#musicplayer").css("display")==="none"){
         $("#musicplayer").css("display","block");
@@ -117,7 +116,6 @@ $(document).ready(function() {
     return false;
     });    
 });
-=======
 
 /*Calender */
 class Calendar {
@@ -250,4 +248,3 @@ class Calendar {
   }
 new Calendar().init();
 /*calender ends*/
->>>>>>> 5cf47b9fdee4365935ba622a4b15f980d0733cf2
