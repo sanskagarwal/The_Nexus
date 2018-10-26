@@ -5,6 +5,11 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine","ejs");
 
+// DataBase
+var mongoose=require("mongoose");
+var mongoDB="mongodb://sk1234:sk1234@ds143163.mlab.com:43163/the_nexus";
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+
 // Models
 var User = require("./models/user.js");
 
@@ -12,7 +17,7 @@ var User = require("./models/user.js");
 var passport=require("passport");
 var localStrategy=require("passport-local");
 app.use(require("express-session")({
-    secret: "Godfather...",
+    secret: "gonnaRock",
     resave: false,
     saveUninitialized: false
 }));
@@ -31,10 +36,6 @@ app.use(function(req,res,next){
 var indexRoute=require("./routes/index.js");
 app.use(indexRoute);
  
-
-app.get("/",function(req,res){
-    res.render("dashboard.ejs");
-});
 
 app.listen(3000,function(){
     console.log("Serving on PORT 3000");
