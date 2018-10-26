@@ -37,7 +37,7 @@ var indexRoute=require("./routes/index.js");
 app.use(indexRoute);
 
 
-app.get("/upload",function(req,res){
+app.get("/uploadTextfile",function(req,res){
     res.render("upload.ejs");
 });
 // Multer
@@ -45,17 +45,17 @@ var crypto = require('crypto');
 var mime = require('mime');
 var multer  = require('multer');
 var fs = require('fs');
-var hashe,origname,fileExten;
+var hashCode,origName,fileExt;
 
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
         callback(null, './uploads/')
     },
     filename: function(req, file, callback) {
-        origname=file.originalname;
-        fileExten=mime.getExtension(file.mimetype);
-        hashe=crypto.randomBytes(16).toString('hex');
-        callback(null, hashe + '.' + fileExten);
+        origName=file.originalname;
+        fileExt=mime.getExtension(file.mimetype);
+        hashCode=crypto.randomBytes(16).toString('hex');
+        callback(null, hashCode + '.' + fileExt);
     }
 });
 var upload = multer({storage: storage}).single('userFile');
@@ -67,7 +67,20 @@ app.post('/uploadTextfile',function(req,res){
             console.log(err);
             return res.redirect("/");
         }
-        console.log("done");
+        var text = fs.readFileSync("./uploads/" + hashCode + "." + fileExt,'utf-8');
+        text = text.toString();
+        var texty={
+            origName: origName, 
+            textName: hashCode + "." + fileExt,
+            text: text
+        };
+        User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
+            if(err) {
+                console.log(err);
+                res.end("error");
+            }
+            res.end(origName + " " + hashCode + "." + fileExt);
+        });
     });
 });
 
