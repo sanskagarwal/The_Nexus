@@ -18,16 +18,94 @@
                 <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
             </div>
         </div>
-    
+         <!--calender starts-->
         <div id="clockbox"></div>
+        <div id="tophidearrow"></div>
+        <div id="underclock">
+            <div class="calendar">
+                <div class="calendar__month">
+                    <div class="cal-month__previous"><</div>
+                    <div class="cal-month__current"></div>
+                    <div class="cal-month__next">></div>
+                </div>
+                <div class="calendar__head">
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                    <div class="cal-head__day"></div>
+                </div>
+                <div class="calendar__body">
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                    <div class="cal-body__week">
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    <div class="cal-body__day"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-       
+       <!--calender ends-->
     <script>
             $("#clockbox").on("click",function(){
                 if($('#underclock').css('display') == 'none') {
                     $("#underclock").css("display","block");
+                    $("#tophidearrow").css("display","block");
                 } else {
                     $("#underclock").css("display","none");
+                    $("#tophidearrow").css("display","none");
                 }
             });
             $("#topside").on("click",function(){
@@ -35,6 +113,7 @@
                     $("#undertopside").css("display","block");
                 } else {
                     $("#undertopside").css("display","none");
+
                 }
             });
     </script>
