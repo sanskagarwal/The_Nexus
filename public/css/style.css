@@ -1,0 +1,70 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align: baseline;
+    background:transparent;
+}
+body{
+    background-image: url(/images/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#side-nav {
+    height: 100%;
+    width: 5vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(1,1,1,0.07);
+    overflow-x: hidden;
+    padding-top: 5px;
+}
+.iconsidetop {
+    background-image: url('/images/icons.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    margin:0px;
+    padding:0px;
+    height:3vh;
+    width: 6vw;
+    float:right;
+}
+#firefox{
+    background-image: url('/images/firefox.png');
+    height:8vh;
+    width:100%;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
+#filemanager{
+    background-image: url("/images/file.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;    
+}
+
+#music{
+    
+}
+
+#mail{
+    
+}
+
+#calculator{
+    
+}
+
+#minebaap{
+    
+}
