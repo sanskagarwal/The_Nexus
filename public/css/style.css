@@ -12,6 +12,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#top-navi {
+    background-color: rgba(1,1,1,0.175);
+    color:white;
+    padding:0.2em;
+    height: 2.8vh;
+    text-align: center;
+}
 #side-nav {
     height: 100%;
     width: 5vw;
@@ -55,19 +63,65 @@ body{
 }
 
 #music{
-    
+    background-image: url("/images/music.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center; 
 }
 
 #mail{
-    
+    background-image: url("/images/mail.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
+#texteditor{
+    background-image: url("/images/font.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
+}
 #calculator{
-    
+    background-image: url("/images/calculator.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 #minebaap{
     
+    background-image: url("/images/Minesweeper.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
+
+#terminalwindow{
+    
+    background-image: url("/images/code.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 /*Started by Swaraj Terminal-CSS*/
@@ -103,5 +157,90 @@ body{
     color: white;
     font-size: 0.8em;
   }
+  /*Anshuman added file manager*/
+  #mainfilem{
+    display:none;
+    position:absolute;
+left:20%;
+top:15%;
+  }
+  #mainfilemleft{
+    border-top: black 1px solid;
+background-color:#292828;
+color:white;
+position:absolute;
+left:20%;
+width:20vw;
+height:65vh;
+  }
+  #mainfilemhome{
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemdocuments{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemuploads{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemmusic{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilempictures{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemvideos{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+#mainfilemtrash{
+    display:none;
+   height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.paragraphfilem{
+  padding:0.5em 0 1em 2em;
+  margin:0;
+}
+.paragraphfilem:hover{
+background-color:grey;}
 
+/* Player CSS Soham */
 

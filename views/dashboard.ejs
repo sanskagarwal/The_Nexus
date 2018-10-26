@@ -1,5 +1,45 @@
 <% include partials/header.ejs %>
-
+<div id="top-navi">
+        <div id="topside">
+            <div id="iconsidetop"></div>
+        </div>
+        <div id="undertopside">
+            <div id="tophidearrow"></div>
+            <div id="tophide">
+                <div id="hortwo"></div>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <div id="horone"></div><br><br>
+                <div class="topnavrightcircle" id="circleone"></div>
+                <div class="topnavrightcircle" id="circletwo"></div>
+                <div class="topnavrightcircle" id="circletwo"></div>
+                <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
+            </div>
+        </div>
+    
+        <div id="clockbox"></div>
+    
+       
+    <script>
+            $("#clockbox").on("click",function(){
+                if($('#underclock').css('display') == 'none') {
+                    $("#underclock").css("display","block");
+                } else {
+                    $("#underclock").css("display","none");
+                }
+            });
+            $("#topside").on("click",function(){
+                if($('#undertopside').css('display') == 'none') {
+                    $("#undertopside").css("display","block");
+                } else {
+                    $("#undertopside").css("display","none");
+                }
+            });
+    </script>
+    
+    
 <div id="side-nav">
     <div id="username" style="color:white;">Ubuntu</div>
     <div id="firefox"></div>
@@ -7,9 +47,81 @@
     <div id="music"></div>
     <div id="mail"></div>
     <div id="calculator"></div>
+    <div id="texteditor"></div>
+    <div id="terminalwindow"></div>
     <div id="minebaap"></div>
 </div>
+<div id="mainfilem">
+    <p> </p>
+  <div id="mainfilemleft">
+    <p id="homeleftm" class=paragraphfilem>HOME </p>
+  <p id="documentsleftm" class=paragraphfilem>DOCUMENTS </p>
+  <p id="uploadsleftm" class=paragraphfilem>UPLOADS </p>
+  <p id="musicleftm" class=paragraphfilem>MUSIC </p>
+  <p id="picturesleftm" class=paragraphfilem> PICTURES</p>
+  <p id="videosleftm" class=paragraphfilem> VIDEOS</p>
+  <p id="trashleftm" class=paragraphfilem>Trash</p>
+  </div>
+  <div id="mainfilemhome">This is Home</div>
+  <div id="mainfilemdocuments">This is Documents  <br><input type="file" ></div>
+  <div id="mainfilemuploads">This is Uploads</div>
+  <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
+  <div id="mainfilempictures">This is Pictures <br><input type="file" ></div>
+  <div id="mainfilemvideos"> This is Videos <br><input type="file" ></div>
+  <div id="mainfilemtrash">This is Trash</div>
+  </div>
+<div id="musicplayer">
+        <p id="musicclose"><button id="musicclosebutton" onclick="func10()">close</button></p>
+        <div class="player">
+        <div class="playlistIcon">
+          <i class="icons ion-android-list plIcon"></i>
+        </div>
+        <div class="clearfix"></div>
+        <div class="trackDetails ">
+          <span class="artist"></span>
+          <span class="splitTxt"> - </span>
+          <span class="title"></span>
+        </div>
+      
+        <div class="controls">
+          <div class="rew">
+            <i class="icons ion-ios-skipbackward"></i>
+          </div>
+          <div class="play">
+            <i class="icons ion-ios-play"></i>
+          </div>
+          <div class="pause">
+            <i class="icons ion-ios-pause"></i>
+          </div>
+      
+          <div class="fwd">
+            <i class="icons ion-ios-skipforward"></i>
+          </div>
+        </div>
+        <div class="volumeIcon">
+          <i class="icons ion-android-volume-up"></i>
+          <div class="volume"></div>
+        </div>
+      
+        <div class="tracker"></div>
+      </div>
+      <ul class="playlist" id="playlist">
+        <li audioURL="music/Eastside.mp3" artist="Khalid,Halsey">Eastside</li>
+        <li audioURL="music/Promises.mp3" artist="Calvin Harris">Promises</li>
+        <li audioURL="music/In My Feelings.mp3" artist="Drake">In My Feelings</li>
+        <li audioURL="music/Shotgun.mp3" artist="George Ezra">Shotgun</li>
+      </ul>
+</div>
 
+<script>
+    $("#music").on("click", function(){
+        if ($("#musicplayer").css("display")==="none"){
+            $("#musicplayer").css("display","block");
+        } else {
+            $("#musicplayer").css("display","none");
+        }
+    });
+</script>
 <div class="ubuntu-terminal">
         <div class="terminal">
             <div class="terminal-text">
@@ -17,16 +129,6 @@
             </div>
         </div>
     </div>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script>
-    $("#firefox").on("click",function(){
-        if($(".ubuntu-terminal").css("display")==="none") {
-            $(".ubuntu-terminal").css("display","block");
-        } else {
-            $(".ubuntu-terminal").css("display","none");
-        }
-});
-</script>
-
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/player.js"></script>
 <% include partials/footer.ejs %>

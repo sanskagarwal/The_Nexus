@@ -1,0 +1,79 @@
+$("#filemanager").on("click",function(){
+    var x=$("#mainfilem").css("display");
+    if(x==="none")
+    {
+    $("#mainfilem").css("display","block");}
+    else
+      {$("#mainfilem").css("display","none");}
+});
+$("#homeleftm").on("click",function(){
+$("#mainfilemhome").css("display","block");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","none");
+});
+$("#documentsleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","block");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","none");
+});
+$("#uploadsleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","block");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","none");
+});
+$("#musicleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","block");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","none");
+});
+$("#picturesleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","block");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","none");
+});
+$("#videosleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","block");
+$("#mainfilemtrash").css("display","none");
+});
+$("#trashleftm").on("click",function(){
+$("#mainfilemhome").css("display","none");
+$("#mainfilemdocuments").css("display","none");
+$("#mainfilemuploads").css("display","none");
+$("#mainfilemmusic").css("display","none");
+$("#mainfilempictures").css("display","none");
+$("#mainfilemvideos").css("display","none");
+$("#mainfilemtrash").css("display","block");
+});
+
+$("#firefox").on("click",function(){
+        if($(".ubuntu-terminal").css("display")==="none") {
+            $(".ubuntu-terminal").css("display","block");
+        } else {
+            $(".ubuntu-terminal").css("display","none");
+        }
+});
