@@ -665,3 +665,8 @@ background-color:grey;}
 
     /*calender ends*/
 
+/* DND */
+
+#editor {
+    display: none;
+}

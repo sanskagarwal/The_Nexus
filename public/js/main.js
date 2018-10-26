@@ -1,3 +1,24 @@
+var ckEditorID;
+ckEditorID = 'ckeExample';
+function fnConsolePrint() {
+  console.log(CKEDITOR.instances[ckEditorID].getData());
+}
+CKEDITOR.config.forcePasteAsPlainText = true;
+CKEDITOR.replace(ckEditorID, {
+  toolbar : [{
+      items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
+    }, {
+      items : ['Format']
+    }, {
+      items : ['Link','Unlink']
+    }, {
+      items : ['Indent','Outdent','-','BulletedList','NumberedList']
+    }, {
+      items : ['Undo','Redo']
+    }
+  ]
+});
+
 $("#filemanager").on("click",function(){
     var x=$("#mainfilem").css("display");
     if(x==="none")
@@ -109,13 +130,25 @@ $(document).ready(function() {
             success: function(response) {
                 if(response!=="error") {
                     var ind = response.search(" ");
-                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#34;" + response.slice(ind+1,response.length) +"&#34;)'>"+ response.slice(0,ind) + "</button></li>");
+                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
     });
     return false;
-    });    
+    }); 
 });
+
+function showTextarea(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          $("#ckeExample").html(xhr.responseText);
+          $("#editor").css("display","block");
+      }
+    };
+  xhr.open("GET", "/getText/"+url, true);
+  xhr.send();
+}
 
 /*Calender */
 class Calendar {
