@@ -12,6 +12,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+#top-navi {
+    background-color: rgba(1,1,1,0.175);
+    color:white;
+    padding:0.2em;
+    height: 2.8vh;
+    text-align: center;
+}
 #side-nav {
     height: 100%;
     width: 5vw;
@@ -95,6 +103,25 @@ body{
 
 #minebaap{
     
+    background-image: url("/images/Minesweeper.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
+
+#terminalwindow{
+    
+    background-image: url("/images/code.png");
+    height:8vh;
+    width:100%;
+    margin-bottom:8px;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 /*Started by Swaraj Terminal-CSS*/
@@ -131,4 +158,5 @@ body{
     font-size: 0.8em;
   }
 
+/* Player CSS Soham */
 

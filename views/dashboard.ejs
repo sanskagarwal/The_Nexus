@@ -1,5 +1,45 @@
 <% include partials/header.ejs %>
-
+<div id="top-navi">
+        <div id="topside">
+            <div id="iconsidetop"></div>
+        </div>
+        <div id="undertopside">
+            <div id="tophidearrow"></div>
+            <div id="tophide">
+                <div id="hortwo"></div>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <p class="topnav"></p>
+                <div id="horone"></div><br><br>
+                <div class="topnavrightcircle" id="circleone"></div>
+                <div class="topnavrightcircle" id="circletwo"></div>
+                <div class="topnavrightcircle" id="circletwo"></div>
+                <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
+            </div>
+        </div>
+    
+        <div id="clockbox"></div>
+    
+       
+    <script>
+            $("#clockbox").on("click",function(){
+                if($('#underclock').css('display') == 'none') {
+                    $("#underclock").css("display","block");
+                } else {
+                    $("#underclock").css("display","none");
+                }
+            });
+            $("#topside").on("click",function(){
+                if($('#undertopside').css('display') == 'none') {
+                    $("#undertopside").css("display","block");
+                } else {
+                    $("#undertopside").css("display","none");
+                }
+            });
+    </script>
+    
+    
 <div id="side-nav">
     <div id="username" style="color:white;">Ubuntu</div>
     <div id="firefox"></div>
@@ -8,6 +48,7 @@
     <div id="mail"></div>
     <div id="calculator"></div>
     <div id="texteditor"></div>
+    <div id="terminalwindow"></div>
     <div id="minebaap"></div>
 </div>
 <div id="musicplayer">
