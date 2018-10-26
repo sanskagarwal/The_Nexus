@@ -51,6 +51,25 @@
     <div id="terminalwindow"></div>
     <div id="minebaap"></div>
 </div>
+<div id="mainfilem">
+    <p> </p>
+  <div id="mainfilemleft">
+    <p id="homeleftm" class=paragraphfilem>HOME </p>
+  <p id="documentsleftm" class=paragraphfilem>DOCUMENTS </p>
+  <p id="uploadsleftm" class=paragraphfilem>UPLOADS </p>
+  <p id="musicleftm" class=paragraphfilem>MUSIC </p>
+  <p id="picturesleftm" class=paragraphfilem> PICTURES</p>
+  <p id="videosleftm" class=paragraphfilem> VIDEOS</p>
+  <p id="trashleftm" class=paragraphfilem>Trash</p>
+  </div>
+  <div id="mainfilemhome">This is Home</div>
+  <div id="mainfilemdocuments">This is Documents  <br><input type="file" ></div>
+  <div id="mainfilemuploads">This is Uploads</div>
+  <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
+  <div id="mainfilempictures">This is Pictures <br><input type="file" ></div>
+  <div id="mainfilemvideos"> This is Videos <br><input type="file" ></div>
+  <div id="mainfilemtrash">This is Trash</div>
+  </div>
 <div id="musicplayer">
         <p id="musicclose"><button id="musicclosebutton" onclick="func10()">close</button></p>
         <div class="player">
@@ -110,16 +129,6 @@
             </div>
         </div>
     </div>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script>
-    $("#firefox").on("click",function(){
-        if($(".ubuntu-terminal").css("display")==="none") {
-            $(".ubuntu-terminal").css("display","block");
-        } else {
-            $(".ubuntu-terminal").css("display","none");
-        }
-});
-</script>
-
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/player.js"></script>
 <% include partials/footer.ejs %>
