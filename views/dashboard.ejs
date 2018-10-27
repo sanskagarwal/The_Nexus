@@ -593,7 +593,11 @@ terminal.command.exec = function(cmd) {
     var beforecmd = cmd.slice(0,ind);
     console.log(beforecmd+" "+aftercmd);
     if(beforecmd==="cd") {
-        if(dirFind==="home"&&(aftercmd==="Documents"||aftercmd==="Documents/")) {
+        if(aftercmd==="./") {
+            dirFind = "home";
+            terminal.addLine("Changed to directory home/");
+        }
+        else if(dirFind==="home"&&(aftercmd==="Documents"||aftercmd==="Documents/")) {
             dirFind = "Documents";
             terminal.addLine("Changed to directory Documents/");
         } else if(dirFind==="home"&&(aftercmd==="Uploads"||aftercmd==="Uploads/")) {
@@ -646,14 +650,15 @@ terminal.command.exec = function(cmd) {
                 });
             }
         }
-    }
-
-    if (terminal.command[cmd]) {
-        terminal.addLine(terminal.command[cmd]());
-    }
-    else if (terminal.command[cmd.split(' ')[0]]) {
-        var cmdArr = cmd.split(/ (.+)/, 2);
-        terminal.addLine(terminal.command[cmdArr[0]](cmdArr[1].split(' ')));
+    } else if(cmd==="pwd") {
+        if(dirFind==="home") {
+            terminal.addLine("/home");
+        } else {
+            terminal.addLine("/home/"+dirFind);
+        }
+    } else if(cmd==="who") {
+        var username = <%= user.username %>;
+        terminal.addLine("User is "+ username);
     } else {
         if (cmd === '') {
             terminal.newLine();
