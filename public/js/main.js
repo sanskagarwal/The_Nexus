@@ -22,6 +22,16 @@ $("#filemanager").on("click",function(){
     else
       {$(".mainfilem").css("display","none");}
 });
+$("#iconsidetop").on("click",function(){
+  var x=$("#topnavside").css("display");
+  if(x==="none")
+  {
+  $("#topnavside").css("display","block");
+  $("#tophidearrow2").css("display","block");}
+  else
+    {$("#topnavside").css("display","none");
+    $("#tophidearrow2").css("display","none");}
+});
 $("#homeleftm").on("click",function(){
     $(".mainfilemhome").css("display","block");
     $(".mainfilemdocuments").css("display","none");
@@ -653,3 +663,14 @@ function tileValue(row,col){
     return mineField[row][col];
   }
 }
+
+$(".close1").on("click",function(){
+
+  if($("#minesweeper").css("display")==="none")
+  {
+    $("#minesweeper").css("display","block");
+  }
+  else{
+    $("#minesweeper").css("display","none");
+  }
+});
