@@ -57,6 +57,20 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 
+app.post("/uploadMusicfile",upload.single('userMusicFile'),function(req,res){
+    var mucy = {
+        origMusicName: origName,
+        MusicName: hashCode + "." + fileExt
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {MusicContent: mucy}},function(err,user){
+        if(err) {
+            console.log(err);
+            res.end("error");
+        }
+        res.end(origName + " " + hashCode + "." + fileExt);
+    });
+});
+
 app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
     var docy = {
         origDocName: origName,

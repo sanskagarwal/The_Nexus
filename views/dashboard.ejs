@@ -135,13 +135,18 @@
         <input type="submit" value="Upload Files" name="submit">
         </form>
   </div>
-  <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
+  <div id="mainfilemmusic">
+    <form id="uploadMusic" enctype="multipart/form-data" action="/uploadMusicfile" method="POST">
+        <input type="file" name="userMusicFile" id="userMusicFile"/>
+        <input type="submit" value="Upload Music" name="submit">
+    </form>
+  </div>
   <div id="mainfilempictures">This is Pictures <br><input type="file" ></div>
   <div id="mainfilemvideos"> This is Videos <br><input type="file" ></div>
   <div id="mainfilemtrash">This is Trash</div>
 </div>
 <div id="musicplayer">
-        <p id="musicclose"><button id="musicclosebutton" onclick="func10()">close</button></p>
+        <p id="musicclose"><button id="musicclosebutton">close</button></p>
         <div class="player">
         <div class="playlistIcon">
           <i class="icons ion-android-list plIcon"></i>
@@ -199,6 +204,10 @@
     
 </div>
 
+<div class="musicPlayer">
+
+</div>
+
 <script>
 $(document).ready(function() {
     $('#uploadForm').submit(function() {
@@ -212,8 +221,8 @@ $(document).ready(function() {
                     $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
-    });
-    return false;
+        });
+        return false;
     }); 
     $('#uploadFormDoc').submit(function() {
         $(this).ajaxSubmit({
@@ -226,8 +235,22 @@ $(document).ready(function() {
                     $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
-    });
-    return false;
+        });
+        return false;
+    }); 
+    $('#uploadMusic').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemmusic").append("<li><button onclick='showMusicarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+        });
+        return false;
     }); 
 });
 
@@ -266,6 +289,10 @@ function showTextarea(url) {
 
 function showDocarea(url) {
     $(".pdf-reader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
+}
+
+function showMusicarea(url) {
+    $(".musicPlayer").html("<audio controls> <source src='/public/uploads/'"+ url +" type='audio/ogg'> <source src='/public/uploads/'"+ url +" type='audio/mpeg'> <source src='/uploads/'"+ url +" type='audio/wav'> <source src='/public/uploads/'"+ url +" type='audio/mp3'> Unsupported audio format for this browser </audio>");
 }
 
 </script>
