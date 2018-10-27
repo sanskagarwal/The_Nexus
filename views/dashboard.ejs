@@ -614,19 +614,69 @@ terminal.command['exit'] = function() {
 
 terminal.command['ls'] = function() {
     if(dirFind==="home") {
-        return "Documents/  Uploads/    Music/  Pictures/   Videos/    Trash/";
+        return "Documents/   Uploads/   Music/   Pictures/   Video/    Trash/";
     } else if(dirFind==="Documents") {
         var allContent = "";
         <% for(var i=0;i<user.docContent.length;i++) { %>
-            allContent += <%= user.docContent[i].origDocName %> + "    ";
+            allContent += <%= user.docContent[i].origDocName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Uploads") {
+        var allContent = "";
+        <% for(var i=0;i<user.textContent.length;i++) { %>
+        console.log(<%= user.textContent[i].origName.toString() %>);
+            allContent += <%= user.textContent[i].origName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Music") {
+        var allContent = "";
+        <% for(var i=0;i<user.musicContent.length;i++) { %>
+            allContent += <%= user.musicContent[i].origMusicName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Video") {
+        var allContent = "";
+        <% for(var i=0;i<user.videoContent.length;i++) { %>
+            allContent += <%= user.videoContent[i].origVideoName.toString() %> + "    ";
         <% } %>
         return allContent;
     }
 }
 
 terminal.command['cd Documents'] = function() {
-    dirFind = "Documents";
-    return;
+    if(dirFind==="home") {
+        dirFind = "Documents";
+        return "Changed to directory Documents/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Uploads'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Uploads";
+        return "Changed to directory Uploads/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Music'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Music";
+        return "Changed to directory Music/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Video'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Video";
+        return "Changed to directory Video/";
+    } else {
+        return "Directory not found";
+    }
 }
 </script>
 
