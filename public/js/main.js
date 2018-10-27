@@ -225,7 +225,13 @@ $("#music").on("click", function(){
         $("#musicplayer").css("display","none");
     }
 });
-
+$("#minebaap").on("click", function(){
+    if ($("#minesweeper").css("display")==="none"){
+        $("#minesweeper").css("display","block");
+    } else {
+        $("#minesweeper").css("display","none");
+    }
+});
 $("#clockbox").on("click",function(){
     if($('#underclock').css('display') == 'none') {
         $("#underclock").css("display","block");

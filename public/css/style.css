@@ -263,7 +263,7 @@ background-color:grey;}
     font-size: 0.9em;
     margin-left: 42vw;
     width: 14vw;
-    margin-top: -5vh;
+    margin-top: -6.5vh;
 }
 
 
@@ -294,14 +294,14 @@ background-color:grey;}
     padding: 6px;
   }
   
-  .title,
+  .title1,
   .artist {
     color: #999;
     -moz-user-select: none;
     left: 167px;
   }
   
-  .title {
+  .title1 {
     font-size: 14px;
     font-weight: bold;
   }
@@ -499,12 +499,7 @@ background-color:grey;}
   }
 
   /*calender starts*/
-  #clockbox {
-    font-size: 0.9em;
-    margin-left: 42vw;
-    width: 14vw;
-}
-
+ 
 #underclock {
 	display:none;
     width: 30vw;
@@ -692,3 +687,103 @@ background-color:grey;}
 #editor {
     display: none;
 }
+
+/* Minesweeper */
+
+#minesweeper
+    {
+         position:absolute;
+        background-color:white;
+        display:none;
+        width:250px;
+        height:260px;
+        left:40%;
+    }
+    #closeminer{
+        margin:0px;
+        position:relative;
+    width:100%;
+    background-color:black;
+    height:20px;
+    color:white;}
+  
+  
+  #containermine{
+      width:200px;
+      margin:0 auto;
+      padding:20px;
+    }
+    
+    #containermine:after { 
+       content: "."; 
+       visibility: hidden; 
+       display: block; 
+       height: 0; 
+       clear: both;
+    }
+    
+    .box{
+         display:block;
+      float:left;
+      width:20px;
+      height:20px;
+      background:#333;
+      border: 1px solid #222;
+      border-radius: 2px;
+      background-image: -webkit-linear-gradient(top, #666, #333);
+      background-image: -moz-linear-gradient(top, #666, #333);
+      background-image: -o-linear-gradient(top, #666, #333);
+      background-image: -ms-linear-gradient(top, #666, #333);
+      background-image: linear-gradient(to bottom, #666, #333);
+      -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0 0 5px rgba(0,0,0,0.75);
+      box-shadow: 0 0 5px rgba(0,0,0,0.75);
+      text-align:center;
+      line-height:20px;
+      font-size:12px;
+      font-weight:bold;
+      color:#ff2e2e;
+    }
+    
+    .box:hover{
+      cursor:pointer;
+      background:#777;
+    }
+    
+    .opened{
+      background:#777;
+    }
+    
+    .checked,.checked:hover{
+    background-image: -webkit-linear-gradient(top, #ba0000, #610000);
+    background-image: -moz-linear-gradient(top, #ba0000, #610000);
+    background-image: -o-linear-gradient(top, #ba0000, #610000);
+    background-image: -ms-linear-gradient(top, #ba0000, #610000);
+    background-image: linear-gradient(to bottom, #ba0000, #610000);
+    }
+    
+    .bomb{
+      display:inline-block;
+      width:10px;
+      height:10px;
+      margin-top:4px;
+      border:1px solid #ffea00;
+      border-radius:5px;
+      background:#f00303;
+    }
+    
+    a#again{
+      clear:both;
+      display:block !important;
+      text-decoration:none;
+      background:#fff;
+      width:200px;
+      height:50px;
+      text-align:center;
+      line-height:50px;
+      font-size:13px;
+      color:#333;
+      font-weight:bold;
+      border-radius:5px;
+      margin:auto;
+    }
