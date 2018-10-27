@@ -13,10 +13,9 @@
 <p class="topnavsidepara">&#8195 &#8195 User</p>
 <div id="horizontaldivider"></div>
 <p class="topnavsidepara">
-    <div id="circular"></div> 
-    <div id="circular1"></div>
-     <div id="circular2"></div>
-     <div id="circular3"></div>
+    <div id="circular"><img class="circulardiv" src="/images/18 - Copy (2).jpg"></div> 
+    <div id="circular1"><img class="circulardiv" src="/images/18 - Copy.jpg"></div>
+     <div id="circular2"><img class="circulardiv" src="/images/18.jpg"></div>
     </p>
 
 </div>
@@ -121,13 +120,13 @@
         <div class="min"></div>
       </div>
   <div class="mainfilemleft">
-    <p id="homeleftm" class="paragraphfilem">Home </p>
-  <p id="documentsleftm" class="paragraphfilem">Documents </p>
-  <p id="uploadsleftm" class=paragraphfilem>Uploads </p>
-  <p id="musicleftm" class=paragraphfilem>Music </p>
-  <p id="picturesleftm" class=paragraphfilem> Pictures</p>
-  <p id="videosleftm" class=paragraphfilem> Videos</p>
-  <p id="trashleftm" class=paragraphfilem>Trash</p>
+    <p id="homeleftm" class="paragraphfilem"><img class="leftdivfileimage" src="/images/home.JPG">Home </p>
+  <p id="documentsleftm" class="paragraphfilem"><img class="leftdivfileimage" src="/images/documents.JPG">Documents </p>
+  <p id="uploadsleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/Desktop.JPG">Uploads </p>
+  <p id="musicleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/musicsmall.JPG">Music </p>
+  <p id="picturesleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/close-button.png"> Pictures</p>
+  <p id="videosleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/videosmall.jpg"> Videos</p>
+  <p id="trashleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/trash.JPG">Trash</p>
   </div>
   <div class="mainfilemhome">This is Home</div>
   <div class="mainfilemdocuments">
@@ -356,8 +355,8 @@
                   <input id="btnAdd" type="button" name="operator" value="+" onclick="set('+')" />
               </td>
       </table></div></div>
-
-<div id="firefoxContent" style="display:none; width: 50vw; height: 50vh; margin: 10% auto; background: white">
+<div id="googlediv"><p id="googleclose"> <p class="close3"></p></p>
+<div id="firefoxContent" style=" width: 50vw; height: 50vh; margin: 10% auto; background: white">
     <img style="margin-left: 30%; margin-top: 10%" src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>
     <script>
         (function() {
@@ -371,7 +370,7 @@
         })();
     </script>
     <gcse:search></gcse:search>  
-</div>
+</div></div>
 <style>
     #___gcse_0 {
         width: 40vw;
@@ -380,10 +379,11 @@
 </style>
 <script>
     $("#firefox").on("click",function(){
-        if($('#firefoxContent').css('display') == 'none') {
-            $("#firefoxContent").css("display","block");
+        if($('#googlediv').css('display') === 'none') {
+            $("#googlediv").css("display","block");
+
         } else {
-            $("#firefoxContent").css("display","none");
+            $("#googlediv").css("display","none");
         }
     });
 </script>

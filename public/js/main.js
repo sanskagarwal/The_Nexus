@@ -674,3 +674,13 @@ $(".close1").on("click",function(){
     $("#minesweeper").css("display","none");
   }
 });
+$(".close3").on("click",function(){
+
+  if($("#googlediv").css("display")==="none")
+  {
+    $("#googlediv").css("display","block");
+  }
+  else{
+    $("#googlediv").css("display","none");
+  }
+});

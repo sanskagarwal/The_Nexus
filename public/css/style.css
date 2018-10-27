@@ -52,7 +52,37 @@ body{
     background-size:contain;
     background-position:center;
 }
+#googleclose{
+    background-color:black;
+    width:100%;
+    height:20px;
+    float:right;
+    margin:0;
+}
+#googlediv{
+    display:none;
+    width:50.1vw;
+    height:50vh;
+    margin:10% auto;
+    }
+    .close3{
+        background: url(/images/close-button.jpg) no-repeat;
+        height: 19px;
+        width: 18px;
+        float: right;
+        margin-right:5px;
+        margin-top: -19px;
+    }
+    .maximisegoogle{
 
+    }
+#firefoxContent{
+    border:1px black solid;
+    border-top:0px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color:white;
+}
 #filemanager{
     background-image: url("/images/file.png");
     height:8vh;
@@ -185,6 +215,14 @@ position:absolute;
 left:20%;
 width:20vw;
 height:65vh;
+  }
+  .leftdivfileimage{
+      position:relative;
+      top:4px;
+      margin:0px;
+      margin-right:1vw;
+      height:4vh;
+      width:2vw;
   }
   #mainfilemhome{
     height:65vh;
@@ -991,7 +1029,7 @@ position:absolute;
 border-top: black 1px solid;
 left:15em;}
 .paragraphfilem{
-  padding:0.5em 0 1em 2em;
+  padding:0.5em 0 0.5em 1em;
   margin:0;
 }
 .paragraphfilem:hover{
@@ -1034,6 +1072,9 @@ border-top-left-radius: 4px;
     width: 57.8vw;
     height: 29px;
     background: #4C4C4C;
+  }
+  #homeleftm{
+      margin-top:7vh;
   }
   .top-control20 {
 position:fixed;
@@ -1103,36 +1144,33 @@ border-top-left-radius: 4px;
 top:45vh;
 height:6vh;
 width:3vw;
-    left: 4vw;border-radius:100%;
-    border:0.5px white solid;
+    left: 6vw;border-radius:100%;
 }
 #horizontaldivider{
     position:absolute;
 top:40vh;
 width:8vw;
-    left: 9vw;
+    left: 8vw;
     border:0.07px grey solid;
 }
 #circular1{position:absolute;
 top:45vh;
 height:6vh;
 width:3vw;
-    left: 9vw;border-radius:100%;
-    border:0.5px white solid;
+    left: 12vw;border-radius:100%;
+}
+.circulardiv{
+    width:100%;
+    height:100%;
+    border-radius:100%;
+    border:1px black solid;
+    
 }
 #circular2{position:absolute;
 top:45vh;
 height:6vh;
 width:3vw;
-    left: 14vw;border-radius:100%;
-    border:0.5px white solid;
-}
-#circular3{position:absolute;
-top:45vh;
-height:6vh;
-width:3vw;
-    left: 19vw;border-radius:100%;
-    border:0.5px white solid;
+    left: 18vw;border-radius:100%;
 }
 .topnavsidepara{
     color:white;
