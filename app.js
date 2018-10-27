@@ -57,8 +57,21 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 
+app.post("/uploadMusicfile",upload.single('userMusicFile'),function(req,res){
+    var mucy = {
+        origMusicName: origName,
+        MusicName: hashCode + "." + fileExt
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {MusicContent: mucy}},function(err,user){
+        if(err) {
+            console.log(err);
+            res.end("error");
+        }
+        res.end(origName + " " + hashCode + "." + fileExt);
+    });
+});
+
 app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
-    console.log("why");
     var docy = {
         origDocName: origName,
         docName: hashCode + "." + fileExt
@@ -73,7 +86,6 @@ app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
 });
 
 app.post('/uploadTextfile',upload.single('userFile'),function(req,res,next){
-    console.log("why2");
     var text = fs.readFileSync("./public/uploads/" + hashCode + "." + fileExt,'utf-8');
     text = text.toString();
     var texty={
