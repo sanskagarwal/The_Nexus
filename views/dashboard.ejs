@@ -111,45 +111,30 @@
     <div id="terminalwindow"></div>
     <div id="minebaap"></div>
 </div>
-<div id="mainfilem">
-    <p> </p>
-  <div id="mainfilemleft">
-    <p id="homeleftm" class=paragraphfilem>HOME </p>
-  <p id="documentsleftm" class=paragraphfilem>DOCUMENTS </p>
+
+<div class="mainfilem">
+    <div class="top-control">
+        <div class="close"></div>
+        <div class="max"></div>
+        <div class="min"></div>
+      </div>
+  <div class="mainfilemleft">
+    <p id="homeleftm" class="paragraphfilem">HOME </p>
+  <p id="documentsleftm" class="paragraphfilem">DOCUMENTS </p>
   <p id="uploadsleftm" class=paragraphfilem>UPLOADS </p>
   <p id="musicleftm" class=paragraphfilem>MUSIC </p>
   <p id="picturesleftm" class=paragraphfilem> PICTURES</p>
   <p id="videosleftm" class=paragraphfilem> VIDEOS</p>
   <p id="trashleftm" class=paragraphfilem>Trash</p>
   </div>
-  <div id="mainfilemhome">This is Home</div>
-  <div id="mainfilemdocuments">
-    <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
-    <input type="file" name="userDocFile" id="userDocFile"/>
-    <input type="submit" value="Upload Docs" name="submit">
-    </form>
+  <div class="mainfilemhome">This is Home</div>
+  <div class="mainfilemdocuments">This is Documents  <br></br><input type="file" ></div>
+  <div class="mainfilemuploads">This is Uploads</div>
+  <div class="mainfilemmusic">This is Music <br></br><input type="file" ></div>
+  <div class="mainfilempictures">This is Pictures <br></br><input type="file" ></div>
+  <div class="mainfilemvideos"> This is Videos <br></br><input type="file" ></div>
+  <div class="mainfilemtrash">This is Trash</div>
   </div>
-  <div id="mainfilemuploads">
-        <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
-        <input type="file" name="userFile" id="userFile"/>
-        <input type="submit" value="Upload Files" name="submit">
-        </form>
-  </div>
-  <div id="mainfilemmusic">
-    <form id="uploadMusic" enctype="multipart/form-data" action="/uploadMusicfile" method="POST">
-        <input type="file" name="userMusicFile" id="userMusicFile"/>
-        <input type="submit" value="Upload Music" name="submit">
-    </form>
-  </div>
-  <div id="mainfilempictures">This is Pictures <br><input type="file" ></div>
-  <div id="mainfilemvideos">
-    <form id="uploadVideo" enctype="multipart/form-data" action="/uploadVideofile" method="POST">
-    <input type="file" name="userVideoFile" id="userVideoFile"/>
-    <input type="submit" value="Upload Video" name="submit">
-    </form>
-  </div>
-  <div id="mainfilemtrash">This is Trash</div>
-</div>
 <div id="musicplayer">
         <p id="musicclose"><button id="musicclosebutton">close</button></p>
         <div class="player">

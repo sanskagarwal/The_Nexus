@@ -15,76 +15,207 @@ setInterval(GetClock,1000);
 
 
 $("#filemanager").on("click",function(){
-    var x=$("#mainfilem").css("display");
+    var x=$(".mainfilem").css("display");
     if(x==="none")
     {
-    $("#mainfilem").css("display","block");}
+    $(".mainfilem").css("display","block");}
     else
-      {$("#mainfilem").css("display","none");}
+      {$(".mainfilem").css("display","none");}
 });
 $("#homeleftm").on("click",function(){
-$("#mainfilemhome").css("display","block");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","none");
-});
-$("#documentsleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","block");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","none");
-});
-$("#uploadsleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","block");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","none");
-});
-$("#musicleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","block");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","none");
-});
-$("#picturesleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","block");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","none");
-});
-$("#videosleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","block");
-$("#mainfilemtrash").css("display","none");
-});
-$("#trashleftm").on("click",function(){
-$("#mainfilemhome").css("display","none");
-$("#mainfilemdocuments").css("display","none");
-$("#mainfilemuploads").css("display","none");
-$("#mainfilemmusic").css("display","none");
-$("#mainfilempictures").css("display","none");
-$("#mainfilemvideos").css("display","none");
-$("#mainfilemtrash").css("display","block");
-});
+    $(".mainfilemhome").css("display","block");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#documentsleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","block");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#uploadsleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","block");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#musicleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","block");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#picturesleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","block");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#videosleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","block");
+    $(".mainfilemtrash").css("display","none");
+    });
+    $("#trashleftm").on("click",function(){
+    $(".mainfilemhome").css("display","none");
+    $(".mainfilemdocuments").css("display","none");
+    $(".mainfilemuploads").css("display","none");
+    $(".mainfilemmusic").css("display","none");
+    $(".mainfilempictures").css("display","none");
+    $(".mainfilemvideos").css("display","none");
+    $(".mainfilemtrash").css("display","block");
+    });
+    $(".close").on("click",function(){
+        $(".mainfilem").css("display","none");
+      });
+  var x=0;
+      $(".max").on("click",function(){
+          x+=1;
+        $(".mainfilem").toggleClass("mainfilem20");
+        $(".mainfilemleft").toggleClass("mainfilemleft20");
+        $(".mainfilemhome").toggleClass("mainfilemhome20");
+        if(x%2!=0)
+        {
+        $(".mainfilemdocuments").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+   $(".mainfilemuploads").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+   $(".mainfilemmusic").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+   $(".mainfilempictures").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+   $(".mainfilemvideos").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+   $(".mainfilemtrash").css({"height":"100%","display":"block",
+      "background-color":"white",
+      "width":"81.5%",
+      "color":"black",
+    "position":"fixed",
+    "top":"29px",
+    "height":"100%",
+    "border-bottom-right-radius": "4px",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+      }
+        else
+        {
+          $(".mainfilemdocuments").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+          $(".mainfilemuploads").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+          $(".mainfilemmusic").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+          $(".mainfilempictures").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+          $(".mainfilemvideos").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+          $(".mainfilemtrash").css({
+        "height":"65vh",
+      "background-color":"white",
+      "width":"45vw",
+      "color":"black",
+      "border-bottom-right-radius": "4px",
+    "position":"absolute",
+    "border-top": "black 1px solid",
+    "left":"15em"});
+        }
+        $(".top-control").toggleClass("top-control20");
+      });
 
 $("#terminalwindow").on("click",function(){
   if($(".ubuntu-terminal").css("display")==="none") {

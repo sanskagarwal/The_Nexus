@@ -882,3 +882,184 @@ input[name=operator] {
 border: 1px solid #c6c6c6;
 background-color: #d6d6d6;
 }
+.mainfilem{
+    display:none;
+    position:absolute;
+left:20%;
+top:15%;
+  }
+  .mainfilemleft{
+    border-top: black 1px solid;
+background-color:#292828;
+color:white;
+position:absolute;
+border-bottom-left-radius: 4px;
+
+left:10%;
+width:20vw;
+height:65vh;
+  }
+  .mainfilemhome{
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+position:absolute;
+border-bottom-right-radius: 4px;
+border-top: black 1px solid;
+left:15em;}
+.mainfilemdocuments{
+    display:none;
+    height:65vh;
+  background-color:white;
+  width:45vw;
+  color:black;
+  border-bottom-right-radius: 4px;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.mainfilemuploads{
+    display:none;
+    height:65vh;
+  background-color:white;
+  border-bottom-right-radius: 4px;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.mainfilemmusic{
+    display:none;
+    height:65vh;
+  background-color:white;
+  border-bottom-right-radius: 4px;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.mainfilempictures{
+    display:none;
+    height:65vh;
+  background-color:white;
+  border-bottom-right-radius: 4px;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.mainfilemvideos{
+    display:none;
+    height:65vh;
+  background-color:white;
+  border-bottom-right-radius: 4px;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.mainfilemtrash{
+    display:none;
+   height:65vh;
+  background-color:white;
+  border-bottom-right-radius: 4px;
+  width:45vw;
+  color:black;
+position:absolute;
+border-top: black 1px solid;
+left:15em;}
+.paragraphfilem{
+  padding:0.5em 0 1em 2em;
+  margin:0;
+}
+.paragraphfilem:hover{
+background-color:grey;}
+.mainfilem20{
+  position:fixed;
+  left:0;
+  top:0;
+height:100%;
+width:100%;
+  }
+  .mainfilemleft20{
+    margin:0;
+    border-top: black 1px solid;
+background-color:#292828;
+color:white;
+position:fixed
+border-bottom-left-radius: 4px;
+top:29px;
+height:100%;
+left:0;
+width:50vw;
+  }
+  .mainfilemhome20{
+    height:100%;
+  background-color:white;
+  width:81.5%;
+  color:black;
+position:fixed;
+top:29px;
+height:100%;
+border-bottom-right-radius: 4px;
+border-top: black 1px solid;
+left:15em;}
+.top-control {
+position:relative;
+left:5.8vw;
+border-top-right-radius: 4px;
+border-top-left-radius: 4px;
+    width: 57.6vw;
+    height: 29px;
+    background: #4C4C4C;
+  }
+  .top-control20 {
+position:fixed;
+left:0;
+top:0;
+margin:0;
+border-top-right-radius: 4px;
+border-top-left-radius: 4px;
+    width: 100vw;
+    height: 29px;
+    background: #4C4C4C;
+  }
+  .top-control .close {
+    background: url(/images/close-button.jpg) no-repeat;
+    height: 19px;
+    position:relative;
+    top:0.8vh;
+    width: 18px;
+    float: right;
+    margin-right: 5px;
+  }
+  .top-control .min {
+    background: url(/images/min-button.jpg) no-repeat;
+    height: 19px;
+    position:relative;
+    top:0.8vh;
+    width: 18px;
+    float: right;
+    margin-right: 2px;
+  }
+  .top-control .max {
+    background: url(/images/max-button.jpg) no-repeat;
+    height: 19px;
+    position:relative;
+    top:0.8vh;
+    width: 18px;
+    float: right;
+    margin-right: 2px;
+  }
+
+  .top-control *:hover {
+    
+  }
+
+  .max-effect {
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    top: 10%;
+    left: 25%;
+  }
