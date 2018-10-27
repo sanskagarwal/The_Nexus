@@ -585,9 +585,13 @@ terminal.event.keydown = function(e) {
 
 terminal.init();
 
+var cmd,ind,aftercmd;
 // Commands
 terminal.command = {};
 terminal.command.exec = function(cmd) {
+    cmd=$(".line").innerText;
+    ind=cmd.indexOf(" ");
+    aftercmd=cmd.slice(ind+1,cmd.length);
     if (terminal.command[cmd]) {
         terminal.addLine(terminal.command[cmd]());
     }
@@ -615,37 +619,6 @@ terminal.command['exit'] = function() {
     document.getElementsByClassName("ubuntu-terminal").innerText = "";
     return;
 }; 
-
-terminal.command['ls'] = function() {
-    if(dirFind==="home") {
-        return "Documents/   Uploads/   Music/   Pictures/   Video/    Trash/";
-    } else if(dirFind==="Documents") {
-        var allContent = "";
-        <% for(var i=0;i<user.docContent.length;i++) { %>
-            allContent += <%= user.docContent[i].origDocName.toString() %> + "    ";
-        <% } %>
-        return allContent;
-    } else if(dirFind==="Uploads") {
-        var allContent = "";
-        <% for(var i=0;i<user.textContent.length;i++) { %>
-        console.log(<%= user.textContent[i].origName.toString() %>);
-            allContent += <%= user.textContent[i].origName.toString() %> + "    ";
-        <% } %>
-        return allContent;
-    } else if(dirFind==="Music") {
-        var allContent = "";
-        <% for(var i=0;i<user.musicContent.length;i++) { %>
-            allContent += <%= user.musicContent[i].origMusicName.toString() %> + "    ";
-        <% } %>
-        return allContent;
-    } else if(dirFind==="Video") {
-        var allContent = "";
-        <% for(var i=0;i<user.videoContent.length;i++) { %>
-            allContent += <%= user.videoContent[i].origVideoName.toString() %> + "    ";
-        <% } %>
-        return allContent;
-    }
-}
 
 terminal.command['cd Documents'] = function() {
     if(dirFind==="home") {
@@ -681,6 +654,34 @@ terminal.command['cd Video'] = function() {
     } else {
         return "Directory not found";
     }
+}
+
+terminal.command['cd ..'] = function() {
+    if(dirFind!=="home") {
+        dirFind = "home";
+        return "Changed to directory home/";
+    } else {
+        return "No root access";
+    }
+}
+
+terminal.command['touch '+ aftercmd] = function() {
+    if(aftercmd==="") {
+        return "No file provided";
+    }
+    var frr;
+    for(var i=aftercmd.length-1;i>=0;i--) {
+        if(aftercmd[i]===".") {
+        frr = i;    
+        break;
+        }
+    }
+    var exti = aftercmd.slice(frr+1,aftercmd.length);
+    $.post("/newFile",{ filename: aftercmd, exti: exti },function(data, status){
+        console.log(data);
+        return "";
+    });
+    return "";
 }
 </script>
 
