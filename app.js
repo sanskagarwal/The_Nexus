@@ -51,18 +51,35 @@ var storage = multer.diskStorage({
     filename: function(req, file, callback) {
         origName=file.originalname;
         fileExt=mime.getExtension(file.mimetype);
+        if(fileExt==="mpga") {
+            fileExt = "mp3";
+        }
         hashCode=crypto.randomBytes(16).toString('hex');
         callback(null, hashCode + '.' + fileExt);
     }
 });
 var upload = multer({storage: storage});
 
+app.post("/uploadVideofile",upload.single('userVideoFile'),function(req,res){
+    var vicy = {
+        origVideoName: origName,
+        VideoName: hashCode + "." + fileExt
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {videoContent: vicy}},function(err,user){
+        if(err) {
+            console.log(err);
+            res.end("error");
+        }
+        res.end(origName + " " + hashCode + "." + fileExt);
+    });
+});
+
 app.post("/uploadMusicfile",upload.single('userMusicFile'),function(req,res){
     var mucy = {
         origMusicName: origName,
         MusicName: hashCode + "." + fileExt
     };
-    User.findByIdAndUpdate(req.user._id,{$push: {MusicContent: mucy}},function(err,user){
+    User.findByIdAndUpdate(req.user._id,{$push: {musicContent: mucy}},function(err,user){
         if(err) {
             console.log(err);
             res.end("error");

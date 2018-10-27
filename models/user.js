@@ -22,6 +22,12 @@ var userSchema = new mongoose.Schema({
             origMusicName: String,
             MusicName: String
         }
+    ],
+    videoContent: [
+        {
+            origVideoName: String,
+            VideoName: String
+        }
     ]
 })
 
