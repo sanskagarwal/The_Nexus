@@ -4,21 +4,22 @@
     <div id="topside">
         <div id="iconsidetop"></div>
     </div>
-    <div id="undertopside">
-        <div id="tophidearrow"></div>
-        <div id="tophide">
-            <div id="hortwo"></div>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <div id="horone"></div><br><br>
-            <div class="topnavrightcircle" id="circleone"></div>
-            <div class="topnavrightcircle" id="circletwo"></div>
-            <div class="topnavrightcircle" id="circletwo"></div>
-            <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
-        </div>
-    </div>
+    <div id="tophidearrow2"></div>
+<div id="topnavside">
+	
+<p class="topnavsidepara">&#8195 &#8195 Wifi</p>
+<p class="topnavsidepara">&#8195 &#8195 Bluetooth</p>
+<p class="topnavsidepara">&#8195 &#8195 Battery</p>
+<p class="topnavsidepara">&#8195 &#8195 User</p>
+<div id="horizontaldivider"></div>
+<p class="topnavsidepara">
+    <div id="circular"></div> 
+    <div id="circular1"></div>
+     <div id="circular2"></div>
+     <div id="circular3"></div>
+    </p>
+
+</div>
         <!--calender starts-->
     <div id="clockbox"></div>
     <div id="tophidearrow"></div>
@@ -199,7 +200,10 @@
 
 <!--Minesweeper-->
 <div id="minesweeper" class="divoverlap">
-    <p id="closeminer">close</p>
+        <div class="top-control1">
+                <div class="close1"></div>
+                <div class="min1"></div>
+              </div>
     <div id="containermine"></div>
 </div>
     
@@ -683,5 +687,6 @@ terminal.command['touch '+ aftercmd] = function() {
 
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
+<script type="text/javascript" src="/js/calendar.js"></script>
 
 <% include partials/footer.ejs %>
