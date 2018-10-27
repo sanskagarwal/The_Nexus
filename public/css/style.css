@@ -500,6 +500,8 @@ background-color:grey;}
 
   /*calender starts*/
  
+
+
 #underclock {
 	display:none;
     width: 30vw;
@@ -787,3 +789,6 @@ background-color:grey;}
       border-radius:5px;
       margin:auto;
     }
+#pdfReader {
+    display: none;
+}

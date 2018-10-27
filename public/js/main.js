@@ -1,23 +1,3 @@
-var ckEditorID;
-ckEditorID = 'ckeExample';
-function fnConsolePrint() {
-  console.log(CKEDITOR.instances[ckEditorID].getData());
-}
-CKEDITOR.config.forcePasteAsPlainText = true;
-CKEDITOR.replace(ckEditorID, {
-  toolbar : [{
-      items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
-    }, {
-      items : ['Format']
-    }, {
-      items : ['Link','Unlink']
-    }, {
-      items : ['Indent','Outdent','-','BulletedList','NumberedList']
-    }, {
-      items : ['Undo','Redo']
-    }
-  ]
-});
 var tday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 function GetClock()
@@ -107,11 +87,11 @@ $("#mainfilemtrash").css("display","block");
 });
 
 $("#terminalwindow").on("click",function(){
-        if($(".ubuntu-terminal").css("display")==="none") {
-            $(".ubuntu-terminal").css("display","block");
-        } else {
-            $(".ubuntu-terminal").css("display","none");
-        }
+  if($(".ubuntu-terminal").css("display")==="none") {
+      $(".ubuntu-terminal").css("display","block");
+  } else {
+      $(".ubuntu-terminal").css("display","none");
+  }
 });
 
 var terminal = {};
@@ -407,3 +387,99 @@ class Calendar {
   }
 new Calendar().init();
 /*calender ends*/
+
+/*calculator starts*/
+function set(op) {
+
+    document.getElementById("display-calc").value += op;
+
+}
+
+function sqrRoot() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.sqrt(tempStore));
+
+}
+
+function asine() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.asin(tempStore));
+
+}
+
+function acosine() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.acos(tempStore));
+
+}
+
+function fLog() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.log(tempStore));
+
+}
+
+function atangent() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.atan(tempStore));
+
+}
+
+function tangent() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.tan(tempStore));
+
+}
+
+function cosine() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.cos(tempStore));
+
+}
+
+function sine() {
+    var tempStore = document.getElementById("display-calc").value;
+    document.getElementById("display-calc").value = eval(Math.sin(tempStore));
+
+}
+
+function setOp() {
+    alert("gf");
+    //document.getElementById("display").value += op;
+}
+
+function answer() {
+    var Exp = document.getElementById("display-calc");
+    var Exp1 = Exp.value;
+    var result = eval(Exp1);
+    //alert(result);
+    Exp.value = result;
+}
+
+function ce() {
+
+    var elem = document.getElementById("display-calc").value;
+    var length = elem.length;
+    length--;
+    var a = elem.substr(0, length);
+
+    // document.getElementById("display").value="";
+    //for(var i=0;i<length-1;i++)
+    //{
+    document.getElementById("display-calc").value = a;
+    // }
+    //alert(length);
+}
+
+function calcclose()
+            {
+                var x = document.getElementById("calc");
+                if(x.style.display=="none")
+                {
+                    x.style.display="block";
+                }
+                else
+                    {x.style.display="none";}
+            }
+
+/*calculator ends*/

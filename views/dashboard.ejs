@@ -123,11 +123,16 @@
   <p id="trashleftm" class=paragraphfilem>Trash</p>
   </div>
   <div id="mainfilemhome">This is Home</div>
-  <div id="mainfilemdocuments">This is Documents  <br><input type="file" ></div>
+  <div id="mainfilemdocuments">
+    <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
+    <input type="file" name="userDocFile" id="userDocFile"/>
+    <input type="submit" value="Upload Docs" name="submit">
+    </form>
+  </div>
   <div id="mainfilemuploads">
         <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
         <input type="file" name="userFile" id="userFile"/>
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="submit" value="Upload Files" name="submit">
         </form>
   </div>
   <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
@@ -197,6 +202,208 @@
     <input type='button' onclick='javascript:fnConsolePrint();' value='Console' />
 </div>
 
+<div class="pdf-reader" style="display:none; z-index:5;">
+    
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#uploadForm').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+    });
+    return false;
+    }); 
+    $('#uploadFormDoc').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+    });
+    return false;
+    }); 
+});
+
+function showTextarea(url) {
+    console.log("imma");
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          $("#ckeExample").html(xhr.responseText);
+          $("#editor").css("display","block");
+          var ckEditorID;
+        ckEditorID = 'ckeExample';
+        function fnConsolePrint() {
+        console.log(CKEDITOR.instances[ckEditorID].getData());
+        }
+        CKEDITOR.config.forcePasteAsPlainText = true;
+        CKEDITOR.replace(ckEditorID, {
+        toolbar : [{
+            items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
+            }, {
+            items : ['Format']
+            }, {
+            items : ['Link','Unlink']
+            }, {
+            items : ['Indent','Outdent','-','BulletedList','NumberedList']
+            }, {
+            items : ['Undo','Redo']
+            }
+        ]
+        });
+      }
+    };
+  xhr.open("GET", "/getText/"+url, true);
+  xhr.send();
+}
+
+function showDocarea(url) {
+    console.log("ww");
+    $("#pdfReader").css("display","block");
+    $("#pdfReader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
+}
+
+</script>
+
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
+
+<div id="calc" >
+        <p id="calcdrag"><button id="calculatorclose" onclick="calcclose()">close</button></p>
+          <div id="calc1">
+      <table id="calculatortable">
+          <tr>
+              <td  class="calculatortd" colspan="7">
+                  <input type="text" id="display-calc" value="" />
+              </td>
+          </tr>
+          <tr>
+              <td class="calculatortd" >
+                  <input id="btnAns" type="button" name="operator" value="Ans" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnPi" type="button" name="operator" value="π" onclick="set('3.14')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnE" type="button" name="operator" value="e" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnOParen" type="button" name="operator" value="(" onclick="set('(')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnCParen" type="button" name="operator" value=")" onclick="set(')')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnPcnt" type="button" name="operator" value="%" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnCE" type="button" name="operator" value="CE" onclick="ce()" />
+              </td>
+          </tr>
+          <tr>
+              <td class="calculatortd" >
+                  <input id="btnRad" type="button" name="operator" value="rad" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnDeg" type="button" name="operator" value="deg" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnFact" type="button" name="operator" value="x!" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn7" type="button" value="7" onclick="set('7')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn8" type="button" value="8" onclick="set('8')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn9" type="button" value="9" onclick="set('9')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnDiv" type="button" name="operator" value="÷" onclick="set('/')" />
+              </td>
+          </tr>
+          <tr>
+              <td class="calculatortd" >
+                  <input id="btnSineInv" type="button" name="operator" value="asin" onclick="asine()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnSine" type="button" name="operator" value="sin" onclick="sine()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnLN" type="button" name="operator" value="ln" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn4" type="button" value="4" onclick="set('4')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn5" type="button" value="5" onclick="set('5')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn6" type="button" value="6" onclick="set('6')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnMul" type="button" name="operator" value="×" onclick="set('*')" />
+              </td>
+          </tr>
+          <tr>
+              <td class="calculatortd" >
+                  <input id="btnCosInv" type="button" name="operator" value="acos" onclick="acosine()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnCos" type="button" name="operator" value="cos" onclick="cosine()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnLog" type="button" name="operator" value="log" onclick="fLog()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn1" type="button" value="1" onclick="set('1')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn2" type="button" value="2" onclick="set('2')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn3" type="button" value="3" onclick="set('3')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnSub" type="button" name="operator" value="-" onclick="set('-')" />
+              </td>
+          </tr>
+          <tr>
+              <td class="calculatortd" >
+                  <input id="btnTanInv" type="button" name="operator" value="atan" onclick="atangent()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnTan" type="button" name="operator" value="tan" onclick="tangent()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnSqrt" type="button" name="operator" value="√" onclick="sqrRoot()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btn0" type="button" value="0" onclick="set('0')" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnPeriod" type="button" value="." />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnEqual" type="button" name="equal" value="=" onclick="answer()" />
+              </td>
+              <td class="calculatortd" >
+                  <input id="btnAdd" type="button" name="operator" value="+" onclick="set('+')" />
+              </td>
+      </table></div></div>
 <% include partials/footer.ejs %>
