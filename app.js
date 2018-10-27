@@ -134,17 +134,17 @@ app.get("/getText/:filename",function(req,res){
 });
 
 app.post("/saveText/:filename",function(req,res){
-    User.findById(req.user._id,function(err,user){
+    User.update({"textContent.textName": req.params.filename},{
+        "$set": {
+            "textContent.$.text": req.body.text,
+        }
+    },function(err){
         if(err) {
             console.log(err);
-        } else {
-            var toWrite = req.body.text;
-            var data = user.textContent.toObject();
-            var result = data.filter(obj => {
-                return obj.textName === req.params.filename;
-            }); 
+            return res.redirect("/");
         }
-    });
+        res.end("Success");
+    }); 
 }); 
 
 app.listen(3000,function(){

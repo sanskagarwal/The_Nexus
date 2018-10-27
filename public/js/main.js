@@ -365,7 +365,7 @@ $("#topside").on("click",function(){
     }
 });
 
-/*Calender */
+/*Calender 
 class Calendar {
   
     constructor () {
@@ -495,7 +495,7 @@ class Calendar {
     }
   }
 new Calendar().init();
-/*calender ends*/
+calender ends*/
 
 /*calculator starts*/
 function set(op) {
