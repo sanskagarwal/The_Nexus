@@ -29,7 +29,13 @@ router.get("/dashboard",function(req,res){
     if(req.isAuthenticated()===false) {
         return res.redirect("/login");
     }
-    res.render("dashboard.ejs");
+    User.findById(req.user._id,function(err,user) {
+        if(err) {
+            console.log("error");
+        } else {
+            res.render("dashboard.ejs",{user:user});
+        }
+    });
 });
 
 router.post("/signup",function(req,res){

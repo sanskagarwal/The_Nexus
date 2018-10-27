@@ -4,21 +4,22 @@
     <div id="topside">
         <div id="iconsidetop"></div>
     </div>
-    <div id="undertopside">
-        <div id="tophidearrow"></div>
-        <div id="tophide">
-            <div id="hortwo"></div>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <p class="topnav"></p>
-            <div id="horone"></div><br><br>
-            <div class="topnavrightcircle" id="circleone"></div>
-            <div class="topnavrightcircle" id="circletwo"></div>
-            <div class="topnavrightcircle" id="circletwo"></div>
-            <a  class="topnavrightcircle" href="/logout" id="circlefour" ></a>
-        </div>
-    </div>
+    <div id="tophidearrow2"></div>
+<div id="topnavside">
+	
+<p class="topnavsidepara">&#8195 &#8195 Wifi</p>
+<p class="topnavsidepara">&#8195 &#8195 Bluetooth</p>
+<p class="topnavsidepara">&#8195 &#8195 Battery</p>
+<p class="topnavsidepara">&#8195 &#8195 User</p>
+<div id="horizontaldivider"></div>
+<p class="topnavsidepara">
+    <div id="circular"></div> 
+    <div id="circular1"></div>
+     <div id="circular2"></div>
+     <div id="circular3"></div>
+    </p>
+
+</div>
         <!--calender starts-->
     <div id="clockbox"></div>
     <div id="tophidearrow"></div>
@@ -199,7 +200,10 @@
 
 <!--Minesweeper-->
 <div id="minesweeper" class="divoverlap">
-    <p id="closeminer">close</p>
+        <div class="top-control1">
+                <div class="close1"></div>
+                <div class="min1"></div>
+              </div>
     <div id="containermine"></div>
 </div>
     
@@ -505,7 +509,183 @@ function showVideoarea(url) {
 
 </script>
 
+<script>
+var terminal = {};
+var dirFind = "home";
+  
+terminal.init = function() {
+    document.addEventListener('keydown',terminal.event.keydown,false);
+    this.newLine();
+};
+terminal.scrollDown = function() {
+    window.scrollTo(0,document.getElementsByClassName('terminal')[0].clientHeight);
+};
+terminal.newLine = function() {
+    if(document.getElementsByClassName('currline').length)
+    document.getElementsByClassName('currline')[0].classList.remove('currline');
+    document.getElementById('terminal-console').innerHTML += '<p class="line currline" data-user="root" data-host="server" data-path="~"></p>';
+};
+terminal.addLine = function(content) {
+    var self = this;
+    document.getElementById('terminal-console').innerHTML += '<p>' + content + '</p>';
+    self.newLine();
+};
+
+terminal.history = {};
+terminal.history.idx = null;
+terminal.history.data = [];
+terminal.history.add = function(cmd) {
+    terminal.history.idx = null;
+    terminal.history.data.push(cmd);
+};
+
+terminal.history.getLast = function(direction) {
+    if (terminal.history.idx === null)
+        terminal.history.idx = terminal.history.data.length;
+    if (direction === '-' && terminal.history.idx > 0)
+        terminal.history.idx--;
+    else if (direction === '+' && terminal.history.idx <= terminal.history.data.length - 1)
+        terminal.history.idx++;
+    return terminal.history.data[terminal.history.idx];
+};
+
+terminal.event = {};
+terminal.event.keydown = function(e) {
+    var self = terminal;
+    var char = e.key;
+    var line = document.getElementsByClassName('currline')[0];
+
+    if (e.key === 'Backspace') {
+        line.innerText = line.innerText.substr(0, line.innerText.length - 1);
+        return;
+    } else if (e.key === 'Tab') {
+        e.preventDefault();
+        return;
+    } else if (e.key === 'Dead') {
+        char = '~';
+    } else if (e.key === 'ArrowUp') {
+        line.innerHTML = terminal.history.getLast('-') || '';
+        e.preventDefault();
+        return;
+    } else if (e.key === 'ArrowDown') {
+        line.innerHTML = terminal.history.getLast('+') || '';
+        e.preventDefault();
+        return;
+    } else if (e.key === 'Space') {
+        char = " ";
+    } else if (e.key === 'Enter') {
+        self.history.add(line.innerText);
+        self.command.exec(line.innerText);
+        return;
+    } else if (e.key.length > 1) {
+        return;
+    }
+    line.innerText += char;
+};
+
+terminal.init();
+
+// Commands
+terminal.command = {};
+terminal.command.exec = function(cmd) {
+    if (terminal.command[cmd]) {
+        terminal.addLine(terminal.command[cmd]());
+    }
+    else if (terminal.command[cmd.split(' ')[0]]) {
+        var cmdArr = cmd.split(/ (.+)/, 2);
+        terminal.addLine(terminal.command[cmdArr[0]](cmdArr[1].split(' ')));
+    } else {
+        if (cmd === '') {
+            terminal.newLine();
+        } else {
+            terminal.addLine(cmd + ': command not found');
+        }
+    }
+};
+terminal.command['help'] = function() {
+    return 'How may I help you?';
+};
+terminal.command['echo'] = function(data) {
+    if (data === undefined)
+        return "Usage: echo [string...]";
+    return data;
+};
+
+terminal.command['exit'] = function() {
+    document.getElementsByClassName("ubuntu-terminal").innerText = "";
+    return;
+}; 
+
+terminal.command['ls'] = function() {
+    if(dirFind==="home") {
+        return "Documents/   Uploads/   Music/   Pictures/   Video/    Trash/";
+    } else if(dirFind==="Documents") {
+        var allContent = "";
+        <% for(var i=0;i<user.docContent.length;i++) { %>
+            allContent += <%= user.docContent[i].origDocName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Uploads") {
+        var allContent = "";
+        <% for(var i=0;i<user.textContent.length;i++) { %>
+        console.log(<%= user.textContent[i].origName.toString() %>);
+            allContent += <%= user.textContent[i].origName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Music") {
+        var allContent = "";
+        <% for(var i=0;i<user.musicContent.length;i++) { %>
+            allContent += <%= user.musicContent[i].origMusicName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    } else if(dirFind==="Video") {
+        var allContent = "";
+        <% for(var i=0;i<user.videoContent.length;i++) { %>
+            allContent += <%= user.videoContent[i].origVideoName.toString() %> + "    ";
+        <% } %>
+        return allContent;
+    }
+}
+
+terminal.command['cd Documents'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Documents";
+        return "Changed to directory Documents/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Uploads'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Uploads";
+        return "Changed to directory Uploads/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Music'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Music";
+        return "Changed to directory Music/";
+    } else {
+        return "Directory not found";
+    }
+}
+
+terminal.command['cd Video'] = function() {
+    if(dirFind==="home") {
+        dirFind = "Video";
+        return "Changed to directory Video/";
+    } else {
+        return "Directory not found";
+    }
+}
+</script>
+
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>
-        
+<script type="text/javascript" src="/js/calendar.js"></script>
+
 <% include partials/footer.ejs %>
