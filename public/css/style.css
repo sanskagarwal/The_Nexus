@@ -499,11 +499,7 @@ background-color:grey;}
   }
 
   /*calender starts*/
-  #clockbox {
-    font-size: 0.9em;
-    margin-left: 42vw;
-    width: 14vw;
-}
+
 
 #underclock {
 	display:none;
