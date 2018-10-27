@@ -1,9 +1,11 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine","ejs");
+app.use(methodOverride("_method"));
 
 // DataBase
 var mongoose=require("mongoose");
@@ -147,21 +149,96 @@ app.post("/saveText/:filename",function(req,res){
     }); 
 }); 
 
-app.post("/newFile",function(req,res){
+app.post("/newFile/:direct",function(req,res){
     var hashed = crypto.randomBytes(16).toString('hex');
-    var texty={
-        origName: req.body.filename, 
-        textName: hashed + "." + req.body.exti,
-        text: ""
-    };
-    User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
-        if(err) {
-            console.log(err);
-            res.end("error");
-        }
-        res.end("success");
-    });
+    if(req.params.direct==="Uploads") {
+        var texty={
+            origName: req.body.filename, 
+            textName: hashed + "." + req.body.exti,
+            text: ""
+        };
+        User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
+            if(err) {
+                console.log(err);
+                res.end("error");
+            }
+            res.end("success");
+        });
+    } else if(req.params.direct==="Documents") {
+        var docy = {
+            origDocName: origName,
+            docName: hashCode + "." + fileExt
+        };
+        User.findByIdAndUpdate(req.user._id,{$push: {docContent: docy}},function(err,user){
+            if(err) {
+                console.log(err);
+                res.end("error");
+            }
+            res.end("Success");
+        });
+    } else if(req.params.direct==="Music") {
+        var mucy = {
+            origMusicName: origName,
+            MusicName: hashCode + "." + fileExt
+        };
+        User.findByIdAndUpdate(req.user._id,{$push: {musicContent: mucy}},function(err,user){
+            if(err) {
+                console.log(err);
+                res.end("error");
+            }
+            res.end("success");
+        });
+    } else if(req.params.direct==="Video") {
+        var vicy = {
+            origVideoName: origName,
+            VideoName: hashCode + "." + fileExt
+        };
+        User.findByIdAndUpdate(req.user._id,{$push: {videoContent: vicy}},function(err,user){
+            if(err) {
+                console.log(err);
+                res.end("error");
+            }
+            res.end("success");
+        });
+    }
 
+});
+
+app.get("/deleteFile/:direct/:filename",function(req,res){
+
+    if(req.params.direct==="Documents") {
+        User.update({ _id: req.user._id }, { "$pull": { "docContent": { "origDocName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
+            if(err) {
+                console.log(err);
+                return res.redirect("/");
+            }
+            res.end("Deleted");
+        });
+    } else if(req.params.direct==="Uploads") {
+        User.update({ _id: req.user._id }, { "$pull": { "textContent": { "origName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
+            if(err) {
+                console.log(err);
+                return res.redirect("/");
+            }
+            res.end("Deleted");
+        });
+    } else if(req.params.direct==="Music") {
+        User.update({ _id: req.user._id }, { "$pull": { "musicContent": { "origMusicName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
+            if(err) {
+                console.log(err);
+                return res.redirect("/");
+            }
+            res.end("Deleted");
+        });
+    } else if(req.params.direct==="Video") {
+        User.update({ _id: req.user._id }, { "$pull": { "videoContent": { "origVideoName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
+            if(err) {
+                console.log(err);
+                return res.redirect("/");
+            }
+            res.end("Deleted");
+        });
+    }
 });
 
 app.listen(3000,function(){
