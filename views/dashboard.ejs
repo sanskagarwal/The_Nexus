@@ -113,7 +113,7 @@
 
 </div>
 
-<div class="mainfilem divoverlap">
+<div class="mainfilem">
     <div class="top-control">
         <div class="close"></div>
         <div class="max"></div>
@@ -129,11 +129,29 @@
   <p id="trashleftm" class=paragraphfilem>Trash</p>
   </div>
   <div class="mainfilemhome">This is Home</div>
-  <div class="mainfilemdocuments">This is Documents  <br></br><input type="file" ></div>
-  <div class="mainfilemuploads">This is Uploads</div>
-  <div class="mainfilemmusic">This is Music <br></br><input type="file" ></div>
+  <div class="mainfilemdocuments">
+  <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
+  <input type="file" name="userDocFile" id="userDocFile"/>
+  <input type="submit" value="Upload Docs" name="submit">
+  </form>
+</div>
+  <div class="mainfilemuploads">
+  <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
+  <input type="file" name="userFile" id="userFile"/>
+  <input type="submit" value="Upload Files" name="submit">
+  </form>
+</div>
+  <div class="mainfilemmusic">
+  <form id="uploadMusic" enctype="multipart/form-data" action="/uploadMusicfile" method="POST">
+  <input type="file" name="userMusicFile" id="userMusicFile"/>
+  <input type="submit" value="Upload Music" name="submit">
+</form></div>
   <div class="mainfilempictures">This is Pictures <br></br><input type="file" ></div>
-  <div class="mainfilemvideos"> This is Videos <br></br><input type="file" ></div>
+  <div class="mainfilemvideos">
+  <form id="uploadVideo" enctype="multipart/form-data" action="/uploadVideofile" method="POST">
+  <input type="file" name="userVideoFile" id="userVideoFile"/>
+  <input type="submit" value="Upload Video" name="submit">
+  </form></div>
   <div class="mainfilemtrash">This is Trash</div>
   </div>
 <div id="musicplayer" class="divoverlap">
@@ -193,8 +211,8 @@
     </div>
 </div>
 
-<div id="editor" class="divoverlap">
-    <textarea cols='80' rows='10' id='ckeExample'></textarea>
+<div id="editor" style="z-index: 100; margin: 10% auto; width: 50vw;" >
+    <textarea cols='80' rows='40' id='ckeExample'></textarea>
     <input type='button' onclick='javascript:fnConsolePrint();' value='Console' />
 </div>
 
@@ -368,14 +386,17 @@
 <script>
 $(document).ready(function() {
     $('#uploadForm').submit(function() {
+        console.log("why2");
         $(this).ajaxSubmit({
+            
             error: function(xhr) {
                 console.log(xhr.status);
             },
             success: function(response) {
                 if(response!=="error") {
+                    console.log(response);
                     var ind = response.search(" ");
-                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                    $(".mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
         });
@@ -389,7 +410,7 @@ $(document).ready(function() {
             success: function(response) {
                 if(response!=="error") {
                     var ind = response.search(" ");
-                    $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                    $(".mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
         });
@@ -403,7 +424,7 @@ $(document).ready(function() {
             success: function(response) {
                 if(response!=="error") {
                     var ind = response.search(" ");
-                    $("#mainfilemmusic").append("<li><button onclick='showMusicarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                    $(".mainfilemmusic").append("<li><button onclick='showMusicarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
         });
@@ -417,7 +438,7 @@ $(document).ready(function() {
             success: function(response) {
                 if(response!=="error") {
                     var ind = response.search(" ");
-                    $("#mainfilemvideos").append("<li><button onclick='showVideoarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                    $(".mainfilemvideos").append("<li><button onclick='showVideoarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
                 }
             }
         });
@@ -432,11 +453,9 @@ xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         $("#ckeExample").html(xhr.responseText);
         $("#editor").css("display","block");
+        $("#editor input[type=button]").attr("id",url.toString());
         var ckEditorID;
         ckEditorID = 'ckeExample';
-        function fnConsolePrint() {
-        console.log(CKEDITOR.instances[ckEditorID].getData());
-        }
         CKEDITOR.config.forcePasteAsPlainText = true;
         CKEDITOR.replace(ckEditorID, {
         toolbar : [{
@@ -452,10 +471,22 @@ xhr.onreadystatechange = function() {
             }
         ]
         });
+        
     }
     };
 xhr.open("GET", "/getText/"+url, true);
 xhr.send();
+}
+
+function fnConsolePrint() {
+    var urrl = $("#editor input[type=button]").attr("id");
+    $.post("/saveText/"+urrl,
+    {
+        text: CKEDITOR.instances['ckeExample'].getData()
+    },
+    function(data, status){
+        console.log(status);
+    });
 }
 
 function showDocarea(url) {

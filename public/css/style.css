@@ -504,7 +504,10 @@ background-color:grey;}
 
 
 #underclock {
-	display:none;
+    display:none;
+    position:fixed;
+    top:5vh;
+    left:34vw;
     width: 30vw;
     height: 42vh;
     margin: 0 auto;
@@ -594,6 +597,9 @@ background-color:grey;}
 
 .cal-day__day--selected {
     background-color: #2196f3;
+    width:2.5vw;
+    margin-left:1.1vw;
+    margin-right:0.7vw;
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.75);
     border-radius: 100%;
     color: #111;
@@ -671,9 +677,9 @@ background-color:grey;}
 }
 #tophidearrow {
     display:none;
-    position:absolute;
-    top:5.5%;
-    left: 49.5%;
+    position:fixed;
+    top:2.7vh;
+    left:48vw;
     z-index:2;
       width: 0;
       height: 0;
@@ -987,7 +993,7 @@ width:100%;
     border-top: black 1px solid;
 background-color:#292828;
 color:white;
-position:fixed
+position:fixed;
 border-bottom-left-radius: 4px;
 top:29px;
 height:100%;
@@ -1007,10 +1013,10 @@ border-top: black 1px solid;
 left:15em;}
 .top-control {
 position:relative;
-left:5.8vw;
+left:5.7vw;
 border-top-right-radius: 4px;
 border-top-left-radius: 4px;
-    width: 57.6vw;
+    width: 56.8vw;
     height: 29px;
     background: #4C4C4C;
   }
