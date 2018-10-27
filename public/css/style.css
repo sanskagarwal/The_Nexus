@@ -692,3 +692,7 @@ background-color:grey;}
 #editor {
     display: none;
 }
+
+#pdfReader {
+    display: none;
+}

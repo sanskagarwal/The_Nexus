@@ -10,6 +10,12 @@ var userSchema = new mongoose.Schema({
             textName: String,
             text: String
         }
+    ],
+    docContent: [
+        {
+            origDocName: String,
+            docName: String
+        }
     ]
 })
 
