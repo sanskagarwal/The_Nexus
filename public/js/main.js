@@ -592,3 +592,8 @@ function calcclose()
             }
 
 /*calculator ends*/
+var zmax=0;
+$(".divoverlap").on("click",function()
+{$(this).css("z-index",++zmax);
+
+});
