@@ -147,6 +147,23 @@ app.post("/saveText/:filename",function(req,res){
     }); 
 }); 
 
+app.post("/newFile",function(req,res){
+    var hashed = crypto.randomBytes(16).toString('hex');
+    var texty={
+        origName: req.body.filename, 
+        textName: hashed + "." + req.body.exti,
+        text: ""
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
+        if(err) {
+            console.log(err);
+            res.end("error");
+        }
+        res.end("success");
+    });
+
+});
+
 app.listen(3000,function(){
     console.log("Serving on PORT 3000");
 }); 
