@@ -215,97 +215,6 @@
 
 </div>
 
-<script>
-$(document).ready(function() {
-    $('#uploadForm').submit(function() {
-        $(this).ajaxSubmit({
-            error: function(xhr) {
-                console.log(xhr.status);
-            },
-            success: function(response) {
-                if(response!=="error") {
-                    var ind = response.search(" ");
-                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
-                }
-            }
-        });
-        return false;
-    }); 
-    $('#uploadFormDoc').submit(function() {
-        $(this).ajaxSubmit({
-            error: function(xhr) {
-                console.log(xhr.status);
-            },
-            success: function(response) {
-                if(response!=="error") {
-                    var ind = response.search(" ");
-                    $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
-                }
-            }
-        });
-        return false;
-    }); 
-    $('#uploadMusic').submit(function() {
-        $(this).ajaxSubmit({
-            error: function(xhr) {
-                console.log(xhr.status);
-            },
-            success: function(response) {
-                if(response!=="error") {
-                    var ind = response.search(" ");
-                    $("#mainfilemmusic").append("<li><button onclick='showMusicarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
-                }
-            }
-        });
-        return false;
-    }); 
-});
-
-function showTextarea(url) {
-    console.log("imma");
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          $("#ckeExample").html(xhr.responseText);
-          $("#editor").css("display","block");
-          var ckEditorID;
-        ckEditorID = 'ckeExample';
-        function fnConsolePrint() {
-        console.log(CKEDITOR.instances[ckEditorID].getData());
-        }
-        CKEDITOR.config.forcePasteAsPlainText = true;
-        CKEDITOR.replace(ckEditorID, {
-        toolbar : [{
-            items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
-            }, {
-            items : ['Format']
-            }, {
-            items : ['Link','Unlink']
-            }, {
-            items : ['Indent','Outdent','-','BulletedList','NumberedList']
-            }, {
-            items : ['Undo','Redo']
-            }
-        ]
-        });
-      }
-    };
-  xhr.open("GET", "/getText/"+url, true);
-  xhr.send();
-}
-
-function showDocarea(url) {
-    $(".pdf-reader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
-}
-
-function showMusicarea(url) {
-    $(".musicPlayer").html("<audio controls> <source src='/public/uploads/'"+ url +" type='audio/ogg'> <source src='/public/uploads/'"+ url +" type='audio/mpeg'> <source src='/uploads/'"+ url +" type='audio/wav'> <source src='/public/uploads/'"+ url +" type='audio/mp3'> Unsupported audio format for this browser </audio>");
-}
-
-</script>
-
-<script type="text/javascript" src="/js/main.js"></script>
-<script type="text/javascript" src="/js/player.js"></script>
 
 <div id="calc" >
         <p id="calcdrag"><button id="calculatorclose" onclick="calcclose()">close</button></p>
@@ -431,4 +340,97 @@ function showMusicarea(url) {
                   <input id="btnAdd" type="button" name="operator" value="+" onclick="set('+')" />
               </td>
       </table></div></div>
+
+      <script>
+        $(document).ready(function() {
+            $('#uploadForm').submit(function() {
+                $(this).ajaxSubmit({
+                    error: function(xhr) {
+                        console.log(xhr.status);
+                    },
+                    success: function(response) {
+                        if(response!=="error") {
+                            var ind = response.search(" ");
+                            $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                        }
+                    }
+                });
+                return false;
+            }); 
+            $('#uploadFormDoc').submit(function() {
+                $(this).ajaxSubmit({
+                    error: function(xhr) {
+                        console.log(xhr.status);
+                    },
+                    success: function(response) {
+                        if(response!=="error") {
+                            var ind = response.search(" ");
+                            $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                        }
+                    }
+                });
+                return false;
+            }); 
+            $('#uploadMusic').submit(function() {
+                $(this).ajaxSubmit({
+                    error: function(xhr) {
+                        console.log(xhr.status);
+                    },
+                    success: function(response) {
+                        if(response!=="error") {
+                            var ind = response.search(" ");
+                            $("#mainfilemmusic").append("<li><button onclick='showMusicarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                        }
+                    }
+                });
+                return false;
+            }); 
+        });
+        
+        function showTextarea(url) {
+            console.log("imma");
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  $("#ckeExample").html(xhr.responseText);
+                  $("#editor").css("display","block");
+                  var ckEditorID;
+                ckEditorID = 'ckeExample';
+                function fnConsolePrint() {
+                console.log(CKEDITOR.instances[ckEditorID].getData());
+                }
+                CKEDITOR.config.forcePasteAsPlainText = true;
+                CKEDITOR.replace(ckEditorID, {
+                toolbar : [{
+                    items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
+                    }, {
+                    items : ['Format']
+                    }, {
+                    items : ['Link','Unlink']
+                    }, {
+                    items : ['Indent','Outdent','-','BulletedList','NumberedList']
+                    }, {
+                    items : ['Undo','Redo']
+                    }
+                ]
+                });
+              }
+            };
+          xhr.open("GET", "/getText/"+url, true);
+          xhr.send();
+        }
+        
+        function showDocarea(url) {
+            $(".pdf-reader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
+        }
+        
+        function showMusicarea(url) {
+            $(".musicPlayer").html("<audio controls> <source src='/public/uploads/'"+ url +" type='audio/ogg'> <source src='/public/uploads/'"+ url +" type='audio/mpeg'> <source src='/uploads/'"+ url +" type='audio/wav'> <source src='/public/uploads/'"+ url +" type='audio/mp3'> Unsupported audio format for this browser </audio>");
+        }
+        
+        </script>
+        
+        <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/player.js"></script>
+        
 <% include partials/footer.ejs %>
