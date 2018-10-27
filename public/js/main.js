@@ -96,7 +96,7 @@ $("#homeleftm").on("click",function(){
         $(".mainfilemhome").toggleClass("mainfilemhome20");
         if(x%2!=0)
         {
-        $(".mainfilemdocuments").css({"height":"100%","display":"block",
+        $(".mainfilemdocuments").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -106,7 +106,7 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-   $(".mainfilemuploads").css({"height":"100%","display":"block",
+   $(".mainfilemuploads").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -116,7 +116,7 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-   $(".mainfilemmusic").css({"height":"100%","display":"block",
+   $(".mainfilemmusic").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -126,7 +126,7 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-   $(".mainfilempictures").css({"height":"100%","display":"block",
+   $(".mainfilempictures").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -136,7 +136,7 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-   $(".mainfilemvideos").css({"height":"100%","display":"block",
+   $(".mainfilemvideos").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -146,7 +146,7 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-   $(".mainfilemtrash").css({"height":"100%","display":"block",
+   $(".mainfilemtrash").css({"height":"100%",
       "background-color":"white",
       "width":"81.5%",
       "color":"black",
@@ -156,7 +156,8 @@ $("#homeleftm").on("click",function(){
     "border-bottom-right-radius": "4px",
     "border-top": "black 1px solid",
     "left":"15em"});
-      }
+      $(this).css("display","block");
+        }
         else
         {
           $(".mainfilemdocuments").css({
@@ -353,8 +354,10 @@ $("#calculator").on("click", function(){
 $("#clockbox").on("click",function(){
     if($('#underclock').css('display') == 'none') {
         $("#underclock").css("display","block");
+        $("#tophidearrow").css("display","block");
     } else {
         $("#underclock").css("display","none");
+        $("#tophidearrow").css("display","none");
     }
 });
 $("#topside").on("click",function(){
@@ -594,6 +597,7 @@ function calcclose()
 /*calculator ends*/
 var zmax=0;
 $(".divoverlap").on("click",function()
-{$(this).css("z-index",++zmax);
+{$(this).siblings(".divoverlap").css("z-index",10);
+$(this).css("z-index",11);
 
 });
