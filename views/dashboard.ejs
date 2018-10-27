@@ -123,11 +123,16 @@
   <p id="trashleftm" class=paragraphfilem>Trash</p>
   </div>
   <div id="mainfilemhome">This is Home</div>
-  <div id="mainfilemdocuments">This is Documents  <br><input type="file" ></div>
+  <div id="mainfilemdocuments">
+    <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
+    <input type="file" name="userDocFile" id="userDocFile"/>
+    <input type="submit" value="Upload Docs" name="submit">
+    </form>
+  </div>
   <div id="mainfilemuploads">
         <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
         <input type="file" name="userFile" id="userFile"/>
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="submit" value="Upload Files" name="submit">
         </form>
   </div>
   <div id="mainfilemmusic">This is Music <br><input type="file" ></div>
@@ -189,6 +194,83 @@
     <textarea cols='80' rows='10' id='ckeExample'></textarea>
     <input type='button' onclick='javascript:fnConsolePrint();' value='Console' />
 </div>
+
+<div class="pdf-reader" style="display:none; z-index:5;">
+    
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#uploadForm').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemuploads").append("<li><button onclick='showTextarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+    });
+    return false;
+    }); 
+    $('#uploadFormDoc').submit(function() {
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                console.log(xhr.status);
+            },
+            success: function(response) {
+                if(response!=="error") {
+                    var ind = response.search(" ");
+                    $("#mainfilemdocuments").append("<li><button onclick='showDocarea(&#39;" + response.slice(ind+1,response.length) +"&#39;)'>"+ response.slice(0,ind) + "</button></li>");
+                }
+            }
+    });
+    return false;
+    }); 
+});
+
+function showTextarea(url) {
+    console.log("imma");
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          $("#ckeExample").html(xhr.responseText);
+          $("#editor").css("display","block");
+          var ckEditorID;
+        ckEditorID = 'ckeExample';
+        function fnConsolePrint() {
+        console.log(CKEDITOR.instances[ckEditorID].getData());
+        }
+        CKEDITOR.config.forcePasteAsPlainText = true;
+        CKEDITOR.replace(ckEditorID, {
+        toolbar : [{
+            items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
+            }, {
+            items : ['Format']
+            }, {
+            items : ['Link','Unlink']
+            }, {
+            items : ['Indent','Outdent','-','BulletedList','NumberedList']
+            }, {
+            items : ['Undo','Redo']
+            }
+        ]
+        });
+      }
+    };
+  xhr.open("GET", "/getText/"+url, true);
+  xhr.send();
+}
+
+function showDocarea(url) {
+    console.log("ww");
+    $("#pdfReader").css("display","block");
+    $("#pdfReader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
+}
+
+</script>
 
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/player.js"></script>

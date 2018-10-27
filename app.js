@@ -46,7 +46,7 @@ var hashCode,origName,fileExt;
 
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, './uploads/')
+        callback(null, './public/uploads/')
     },
     filename: function(req, file, callback) {
         origName=file.originalname;
@@ -55,29 +55,38 @@ var storage = multer.diskStorage({
         callback(null, hashCode + '.' + fileExt);
     }
 });
-var upload = multer({storage: storage}).single('userFile');
+var upload = multer({storage: storage});
 
-
-app.post('/uploadTextfile',function(req,res){
-    upload(req,res,function(err) {
+app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
+    console.log("why");
+    var docy = {
+        origDocName: origName,
+        docName: hashCode + "." + fileExt
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {docContent: docy}},function(err,user){
         if(err) {
             console.log(err);
-            return res.redirect("/");
+            res.end("error");
         }
-        var text = fs.readFileSync("./uploads/" + hashCode + "." + fileExt,'utf-8');
-        text = text.toString();
-        var texty={
-            origName: origName, 
-            textName: hashCode + "." + fileExt,
-            text: text
-        };
-        User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
-            if(err) {
-                console.log(err);
-                res.end("error");
-            }
-            res.end(origName + " " + hashCode + "." + fileExt);
-        });
+        res.end(origName + " " + hashCode + "." + fileExt);
+    });
+});
+
+app.post('/uploadTextfile',upload.single('userFile'),function(req,res,next){
+    console.log("why2");
+    var text = fs.readFileSync("./public/uploads/" + hashCode + "." + fileExt,'utf-8');
+    text = text.toString();
+    var texty={
+        origName: origName, 
+        textName: hashCode + "." + fileExt,
+        text: text
+    };
+    User.findByIdAndUpdate(req.user._id,{$push: {textContent: texty}},function(err,user){
+        if(err) {
+            console.log(err);
+            res.end("error");
+        }
+        res.end(origName + " " + hashCode + "." + fileExt);
     });
 });
 

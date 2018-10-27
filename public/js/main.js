@@ -1,23 +1,3 @@
-var ckEditorID;
-ckEditorID = 'ckeExample';
-function fnConsolePrint() {
-  console.log(CKEDITOR.instances[ckEditorID].getData());
-}
-CKEDITOR.config.forcePasteAsPlainText = true;
-CKEDITOR.replace(ckEditorID, {
-  toolbar : [{
-      items : ['Bold','Italic','Underline','Strike','-','RemoveFormat']
-    }, {
-      items : ['Format']
-    }, {
-      items : ['Link','Unlink']
-    }, {
-      items : ['Indent','Outdent','-','BulletedList','NumberedList']
-    }, {
-      items : ['Undo','Redo']
-    }
-  ]
-});
 var tday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 function GetClock()
@@ -107,11 +87,11 @@ $("#mainfilemtrash").css("display","block");
 });
 
 $("#terminalwindow").on("click",function(){
-        if($(".ubuntu-terminal").css("display")==="none") {
-            $(".ubuntu-terminal").css("display","block");
-        } else {
-            $(".ubuntu-terminal").css("display","none");
-        }
+  if($(".ubuntu-terminal").css("display")==="none") {
+      $(".ubuntu-terminal").css("display","block");
+  } else {
+      $(".ubuntu-terminal").css("display","none");
+  }
 });
 
 var terminal = {};
