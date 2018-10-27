@@ -133,6 +133,20 @@ app.get("/getText/:filename",function(req,res){
     });
 });
 
+app.post("/saveText/:filename",function(req,res){
+    User.findById(req.user._id,function(err,user){
+        if(err) {
+            console.log(err);
+        } else {
+            var toWrite = req.body.text;
+            var data = user.textContent.toObject();
+            var result = data.filter(obj => {
+                return obj.textName === req.params.filename;
+            }); 
+        }
+    });
+}); 
+
 app.listen(3000,function(){
     console.log("Serving on PORT 3000");
 }); 
