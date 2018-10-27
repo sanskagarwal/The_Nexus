@@ -343,6 +343,7 @@ $("#minebaap").on("click", function(){
         $("#minesweeper").css("display","none");
     }
 });
+
 $("#calculator").on("click", function(){
     if ($("#calc").css("display")==="none"){
         $("#calc").css("display","block");

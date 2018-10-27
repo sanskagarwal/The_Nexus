@@ -335,6 +335,36 @@
               </td>
       </table></div></div>
 
+<div id="firefoxContent" style="display:none; width: 50vw; height: 50vh; margin: 10% auto; background: white">
+    <img style="margin-left: 30%; margin-top: 10%" src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'>
+    <script>
+        (function() {
+        var cx = '013141523189090695387:c1riug2tysa';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <gcse:search></gcse:search>  
+</div>
+<style>
+    #___gcse_0 {
+        width: 40vw;
+        margin: 0 auto;
+    }
+</style>
+<script>
+    $("#firefox").on("click",function(){
+        if($('#firefoxContent').css('display') == 'none') {
+            $("#firefoxContent").css("display","block");
+        } else {
+            $("#firefoxContent").css("display","none");
+        }
+    });
+</script>
 <script>
 $(document).ready(function() {
     $('#uploadForm').submit(function() {
