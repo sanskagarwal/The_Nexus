@@ -205,7 +205,6 @@ app.post("/newFile/:direct",function(req,res){
 });
 
 app.get("/deleteFile/:direct/:filename",function(req,res){
-
     if(req.params.direct==="Documents") {
         User.update({ _id: req.user._id }, { "$pull": { "docContent": { "origDocName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
             if(err) {
@@ -238,6 +237,8 @@ app.get("/deleteFile/:direct/:filename",function(req,res){
             }
             res.end("Deleted");
         });
+    } else {
+        res.end("No file found");
     }
 });
 

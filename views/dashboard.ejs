@@ -638,9 +638,13 @@ terminal.command.exec = function(cmd) {
         if(aftercmd==="") {
             terminal.addLine("touch: Missing file operand");
         } else {
-            $.get("/deleteFile/"+aftercmd, function(data, status){
-                console.log(data);
-            });
+            if(dirFind==="home") {
+                terminal.addLine("Can't delete file from home folder");
+            } else {
+                $.get("/deleteFile/"+ dirFind +"/"+aftercmd, function(data, status){
+                    console.log(data);
+                });
+            }
         }
     }
 
