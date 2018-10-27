@@ -1,7 +1,89 @@
-<form method="POST" action="/login">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Login</button>
-</form>
+<html>
+<head>
+    	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+	<title>Ubuntu Online</title>
+	<style type="text/css">* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
 
-<a href="/signup">Sign up Instead</a>
+body{
+    background-color: #2c001e;
+    font-family: Ubuntu, "times new roman", times, roman, serif;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+        .login{
+            width: 300px;
+            height:300px;
+            color:white;
+            position: relative;
+            top: 200px;
+            left: 550px;
+        }
+        input[type=text] {
+    box-sizing: border-box;
+    background-color: #3E3538;
+    color: white;
+}
+        input[type=password] {
+    box-sizing: border-box;
+    background-color: #3E3538;
+    color: white;
+}
+        #new{
+            position:relative;
+            margin:10px 10px 10px 10px;
+            padding:10px 10px 10px 40px;
+        }
+        label{  
+            font-size: 80%;
+            display: inline-block;
+            padding-bottom:3px;
+        }
+        input[type=submit] {
+            background-color: #3E3538;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+#Signup{
+            background-color: #3E3538;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="login">
+        <img src="images/sign.jpg" align="left">
+        <p id="new"><strong>user</strong></p><br />
+        <form action="/login" method="POST">
+            
+           <label for="fname">Username:</label><br />
+        <input type="text" id="fname" name="username" placeholder="Type here"><br /><br />
+        <label for="lname">Password:</label><br />
+         <input type="password" id="lname" name="password" placeholder="Type here"><br /><br />
+            <input type="submit" value="Login"/>
+            
+               
+        </form>
+        </br>
+        
+        <a href="/signup">Sign up Instead</a>
+
+        
+    </div></body>
+</html>
