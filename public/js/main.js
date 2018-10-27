@@ -212,6 +212,13 @@ $("#minebaap").on("click", function(){
         $("#minesweeper").css("display","none");
     }
 });
+$("#calculator").on("click", function(){
+    if ($("#calc").css("display")==="none"){
+        $("#calc").css("display","block");
+    } else {
+        $("#calc").css("display","none");
+    }
+});
 $("#clockbox").on("click",function(){
     if($('#underclock').css('display') == 'none') {
         $("#underclock").css("display","block");
