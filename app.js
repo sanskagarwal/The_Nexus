@@ -58,7 +58,6 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 
 app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
-    console.log("why");
     var docy = {
         origDocName: origName,
         docName: hashCode + "." + fileExt
@@ -73,7 +72,6 @@ app.post("/uploadDocfile",upload.single('userDocFile'),function(req,res){
 });
 
 app.post('/uploadTextfile',upload.single('userFile'),function(req,res,next){
-    console.log("why2");
     var text = fs.readFileSync("./public/uploads/" + hashCode + "." + fileExt,'utf-8');
     text = text.toString();
     var texty={

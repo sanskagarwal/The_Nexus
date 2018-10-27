@@ -195,7 +195,7 @@
     <input type='button' onclick='javascript:fnConsolePrint();' value='Console' />
 </div>
 
-<div class="pdf-reader" style="display:none; z-index:5;">
+<div class="pdf-reader">
     
 </div>
 
@@ -265,9 +265,7 @@ function showTextarea(url) {
 }
 
 function showDocarea(url) {
-    console.log("ww");
-    $("#pdfReader").css("display","block");
-    $("#pdfReader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
+    $(".pdf-reader").html("<object width='600' height='400' data='/uploads/"+ url +"'></object>");
 }
 
 </script>
