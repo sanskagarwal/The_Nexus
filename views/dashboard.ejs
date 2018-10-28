@@ -701,6 +701,10 @@ terminal.command.exec = function(cmd) {
     } else if(cmd==="clear") {
         $("#terminal-console").html("");
         terminal.addLine("");
+    } else if(cmd==="fortune") {
+        $.get("/gimmeajoke",function(data,status){
+            terminal.addLine(data);
+        });
     } else {
         if (cmd === '') {
             terminal.newLine();

@@ -6,6 +6,7 @@ app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine","ejs");
 app.use(methodOverride("_method"));
+var knockknock = require('knock-knock-jokes')
 
 // DataBase
 var mongoose=require("mongoose");
@@ -307,6 +308,10 @@ app.get("/getData/:direct",function(req,res){
             res.end("Deleted");
         });
     }*/
+});
+
+app.get("/gimmeajoke",function(req,res){
+    res.end(knockknock());
 });
 
 app.listen(3000,function(){
