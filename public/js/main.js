@@ -684,3 +684,8 @@ $(".close3").on("click",function(){
     $("#googlediv").css("display","none");
   }
 });
+$(".paragraphfilem").on("click",function(){
+
+  $(this).siblings(".paragraphfilem").css("background-color","#4C4C4C");
+  $(this).css("background-color","#dd4814");
+});

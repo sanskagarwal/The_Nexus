@@ -113,7 +113,7 @@
 
 </div>
 
-<div class="mainfilem">
+<div class="mainfilem divoverlap">
     <div class="top-control">
         <div class="close"></div>
         <div class="max"></div>
@@ -128,7 +128,13 @@
   <p id="videosleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/videosmall.jpg"> Videos</p>
   <p id="trashleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/trash.JPG">Trash</p>
   </div>
-  <div class="mainfilemhome">This is Home</div>
+  <div class="mainfilemhome">
+      <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:15vh;left:2.5vw;">Documents</p></p>
+      <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:15vh;left:14.5vw;">Uploads</p></p>
+      <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:15vh;left:26vw;">Music</p></p>
+      <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:15vh;left:36.3vw;">Pictures</p></p>
+      <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:36vh;left:2.5vw;">Videos</p>
+  </div>
   <div class="mainfilemdocuments">
   <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
   <input type="file" name="userDocFile" id="userDocFile"/>
@@ -214,7 +220,7 @@
     </div>
 </div>
 
-<div id="editor" style="z-index: 100; margin: 10% auto; width: 50vw;" >
+<div id="editor" class="divoverlap" style="z-index: 100; margin: 10% auto; width: 50vw;" >
     <textarea cols='80' rows='40' id='ckeExample'></textarea>
     <input type='button' onclick='javascript:fnConsolePrint();' value='Console' />
 </div>
