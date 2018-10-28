@@ -136,16 +136,28 @@
       <p class="sublime"><img src="/images/72.png" style="height: 8vh; width: 5vw;"><p style="position:absolute;top:36vh;left:2.5vw;">Videos</p>
   </div>
   <div class="mainfilemdocuments">
+
+
   <form id="uploadFormDoc" enctype="multipart/form-data" action="/uploadDocfile" method="POST">
   <input type="file" name="userDocFile" id="userDocFile"/>
   <input type="submit" value="Upload Docs" name="submit">
   </form>
+
+
+  <% for(var i=0;i<user.docContent.length;i++) { %>
+  <li><button onclick="showDocarea('<%= user.docContent[i].docName %>')"><%= user.docContent[i].origDocName %></button></li>
+   <% } %>
 </div>
   <div class="mainfilemuploads">
   <form id="uploadForm" enctype="multipart/form-data" action="/uploadTextfile" method="POST">
   <input type="file" name="userFile" id="userFile"/>
   <input type="submit" value="Upload Files" name="submit">
   </form>
+
+  <% for(var i=0;i<user.textContent.length;i++) { %>
+  <li><button onclick="showTextarea('<%=user.textContent[i].textName%>')"><%=user.textContent[i].origName%></button></li>
+  <% } %>
+
 </div>
   <div class="mainfilemmusic">
   <form id="uploadMusic" enctype="multipart/form-data" action="/uploadMusicfile" method="POST">
@@ -157,7 +169,13 @@
   <form id="uploadVideo" enctype="multipart/form-data" action="/uploadVideofile" method="POST">
   <input type="file" name="userVideoFile" id="userVideoFile"/>
   <input type="submit" value="Upload Video" name="submit">
-  </form></div>
+  </form>
+  
+  <% for(var i=0;i<user.videoContent.length;i++) { %>
+  <li><button onclick="showVideoarea('<%= user.videoContent[i].VideoName %>')"><%= user.videoContent[i].origVideoName %></button></li>
+  <% } %>
+
+  </div>
   <div class="mainfilemtrash">This is Trash</div>
   </div>
 <div id="musicplayer" class="divoverlap">
@@ -680,30 +698,6 @@ terminal.command.exec = function(cmd) {
                 terminal.addLine(data);
             });
         }
-       /*     var allContent = "";
-            <% for(var i=0;i<user.docContent.length;i++) { %>
-                allContent += "<%=user.docContent[i].origDocName%>  ";
-            <% } %>
-            terminal.addLine(allContent);
-        } else if(dirFind==="Uploads") {
-            var allContent = "";
-            <% for(var i=0;i<user.textContent.length;i++) { %>
-                allContent += "<%=user.textContent[i].origName%>  ";
-            <% } %>
-            terminal.addLine(allContent);
-        } else if(dirFind==="Music") {
-            var allContent = "";
-            <% for(var i=0;i<user.musicContent.length;i++) { %>
-                allContent += "<%=user.musicContent[i].origMusicName%>  ";
-            <% } %>
-            terminal.addLine(allContent);
-        } else if(dirFind==="Video") {
-            var allContent = "";
-            <% for(var i=0;i<user.videoContent.length;i++) { %>
-                allContent += "<%=data[i].origVideoName%>  ";
-            <% } %>
-            terminal.addLine(allContent);
-        }*/
     } else if(cmd==="clear") {
         $("#terminal-console").html("");
         terminal.addLine("");
