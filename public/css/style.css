@@ -753,7 +753,7 @@ background-color:grey;}
 #minesweeper
     {
          position:absolute;
-        background-color:white;
+        background-color: gray;
         display:none;
         width:250px;
         height:260px;
