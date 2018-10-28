@@ -29,7 +29,7 @@ var userSchema = new mongoose.Schema({
             VideoName: String
         }
     ]
-})
+});
 
 userSchema.plugin(passportLocalMongoose);
 

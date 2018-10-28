@@ -124,7 +124,7 @@
   <p id="documentsleftm" class="paragraphfilem"><img class="leftdivfileimage" src="/images/documents.JPG">Documents </p>
   <p id="uploadsleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/Desktop.JPG">Uploads </p>
   <p id="musicleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/musicsmall.JPG">Music </p>
-  <p id="picturesleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/close-button.png"> Pictures</p>
+  <p id="picturesleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/videosmall.jpg"> Pictures</p>
   <p id="videosleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/videosmall.jpg"> Videos</p>
   <p id="trashleftm" class=paragraphfilem><img class="leftdivfileimage" src="/images/trash.JPG">Trash</p>
   </div>
@@ -388,6 +388,7 @@
         margin: 0 auto;
     }
 </style>
+
 <script>
     $("#firefox").on("click",function(){
         if($('#googlediv').css('display') === 'none') {
@@ -658,6 +659,7 @@ terminal.command.exec = function(cmd) {
             } else {
                 $.get("/deleteFile/"+ dirFind +"/"+aftercmd, function(data, status){
                     console.log(data);
+                    terminal.addLine("");
                 });
             }
         }
@@ -668,8 +670,39 @@ terminal.command.exec = function(cmd) {
             terminal.addLine("/home/"+dirFind);
         }
     } else if(cmd==="who") {
-        var username = <%= user.username %>;
+        var username = "<%= user.username %>";
         terminal.addLine("User is "+ username);
+    } else if(cmd==="ls") {
+        if(dirFind==="home") {
+            terminal.addLine("Documents   Uploads   Music   Video");
+        } else if(dirFind==="Documents") {
+            var allContent = "";
+            <% for(var i=0;i<user.docContent.length;i++) { %>
+                allContent += "<%=user.docContent[i].origDocName%>  ";
+            <% } %>
+            terminal.addLine(allContent);
+        } else if(dirFind==="Uploads") {
+            var allContent = "";
+            <% for(var i=0;i<user.textContent.length;i++) { %>
+                allContent += "<%=user.textContent[i].origName%>  ";
+            <% } %>
+            terminal.addLine(allContent);
+        } else if(dirFind==="Music") {
+            var allContent = "";
+            <% for(var i=0;i<user.musicContent.length;i++) { %>
+                allContent += "<%=user.musicContent[i].origMusicName%>  ";
+            <% } %>
+            terminal.addLine(allContent);
+        } else if(dirFind==="Video") {
+            var allContent = "";
+            <% for(var i=0;i<user.videoContent.length;i++) { %>
+                allContent += "<%=data[i].origVideoName%>  ";
+            <% } %>
+            terminal.addLine(allContent);
+        }
+    } else if(cmd==="clear") {
+        $("#terminal-console").html("");
+        terminal.addLine("");
     } else {
         if (cmd === '') {
             terminal.newLine();

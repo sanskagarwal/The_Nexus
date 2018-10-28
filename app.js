@@ -166,8 +166,8 @@ app.post("/newFile/:direct",function(req,res){
         });
     } else if(req.params.direct==="Documents") {
         var docy = {
-            origDocName: origName,
-            docName: hashCode + "." + fileExt
+            origDocName: req.body.filename,
+            docName: hashed + "." + req.body.exti
         };
         User.findByIdAndUpdate(req.user._id,{$push: {docContent: docy}},function(err,user){
             if(err) {
@@ -178,8 +178,8 @@ app.post("/newFile/:direct",function(req,res){
         });
     } else if(req.params.direct==="Music") {
         var mucy = {
-            origMusicName: origName,
-            MusicName: hashCode + "." + fileExt
+            origMusicName: req.body.filename,
+            MusicName: hashed + "." + req.body.exti
         };
         User.findByIdAndUpdate(req.user._id,{$push: {musicContent: mucy}},function(err,user){
             if(err) {
@@ -190,8 +190,8 @@ app.post("/newFile/:direct",function(req,res){
         });
     } else if(req.params.direct==="Video") {
         var vicy = {
-            origVideoName: origName,
-            VideoName: hashCode + "." + fileExt
+            origVideoName: req.body.filename,
+            VideoName: hashed + "." + req.body.exti
         };
         User.findByIdAndUpdate(req.user._id,{$push: {videoContent: vicy}},function(err,user){
             if(err) {
@@ -240,6 +240,18 @@ app.get("/deleteFile/:direct/:filename",function(req,res){
     } else {
         res.end("No file found");
     }
+});
+
+app.get("/getData/:direct",function(req,res){
+    /*if(req.params.direct==="Documents") {
+        User.find({ _id: req.user._id }, { "$pull": { "docContent": { "origDocName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
+            if(err) {
+                console.log(err);
+                return res.redirect("/");
+            }
+            res.end("Deleted");
+        });
+    }*/
 });
 
 app.listen(3000,function(){
