@@ -675,8 +675,12 @@ terminal.command.exec = function(cmd) {
     } else if(cmd==="ls") {
         if(dirFind==="home") {
             terminal.addLine("Documents   Uploads   Music   Video");
-        } else if(dirFind==="Documents") {
-            var allContent = "";
+        } else {
+            $.get("/getData/"+dirFind,function(data,status){
+                terminal.addLine(data);
+            });
+        }
+       /*     var allContent = "";
             <% for(var i=0;i<user.docContent.length;i++) { %>
                 allContent += "<%=user.docContent[i].origDocName%>  ";
             <% } %>
@@ -699,7 +703,7 @@ terminal.command.exec = function(cmd) {
                 allContent += "<%=data[i].origVideoName%>  ";
             <% } %>
             terminal.addLine(allContent);
-        }
+        }*/
     } else if(cmd==="clear") {
         $("#terminal-console").html("");
         terminal.addLine("");

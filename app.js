@@ -243,6 +243,61 @@ app.get("/deleteFile/:direct/:filename",function(req,res){
 });
 
 app.get("/getData/:direct",function(req,res){
+    if(req.params.direct==="Documents") {
+        User.findById(req.user._id,function(err,user){
+            if(err) {
+                console.log(err);
+            } else {
+                var data = user.docContent.toObject();
+                var content = "";
+                for(var i=0;i<data.length;i++) {
+                    content+=data[i].origDocName+"  ";
+                }
+                res.send(content);
+            }
+        });
+    } else if(req.params.direct==="Uploads") {
+        User.findById(req.user._id,function(err,user){
+            if(err) {
+                console.log(err);
+            } else {
+                var data = user.textContent.toObject();
+                var content = "";
+                for(var i=0;i<data.length;i++) {
+                    content+=data[i].origName+"  ";
+                }
+                res.send(content);
+            }
+        });
+    } else if(req.params.direct==="Music") {
+        User.findById(req.user._id,function(err,user){
+            if(err) {
+                console.log(err);
+            } else {
+                var data = user.musicContent.toObject();
+                var content = "";
+                for(var i=0;i<data.length;i++) {
+                    content+=data[i].origMusicName+"  ";
+                }
+                res.send(content);
+            }
+        });
+    } else if(req.params.direct==="Video") {
+        User.findById(req.user._id,function(err,user){
+            if(err) {
+                console.log(err);
+            } else {
+                var data = user.videoContent.toObject();
+                var content = "";
+                for(var i=0;i<data.length;i++) {
+                    content+=data[i].origVideoName+"  ";
+                }
+                res.send(content);
+            }
+        });
+    }
+
+
     /*if(req.params.direct==="Documents") {
         User.find({ _id: req.user._id }, { "$pull": { "docContent": { "origDocName": req.params.filename } }}, { safe: true, multi:true }, function(err, obj) {
             if(err) {
