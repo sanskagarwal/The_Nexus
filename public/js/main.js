@@ -689,3 +689,12 @@ $(".paragraphfilem").on("click",function(){
   $(this).siblings(".paragraphfilem").css("background-color","#4C4C4C");
   $(this).css("background-color","#dd4814");
 });
+$(".close4").on("click",function(){
+
+  if($(".ubuntu-terminal").css("display")==="none")
+  {
+    $(".ubuntu-terminal").css("display","block");
+  }
+  else
+  {$(".ubuntu-terminal").css("display","none");}
+});

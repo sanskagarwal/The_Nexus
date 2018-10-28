@@ -1072,6 +1072,20 @@ left:15em;}
 position: relative;
 float:left;
 }
+.close4{
+    background: url(/images/close-button.jpg) no-repeat;
+    height: 19px;
+    width: 18px;
+    float: right;
+    margin-right:5px;
+    margin-top: 0px;
+}
+.top-order40{
+    position:relative;
+ width:100%;
+ height:19px;
+ background-color:black;
+}
 .top-control {
 position:relative;
 left:5.7vw;
