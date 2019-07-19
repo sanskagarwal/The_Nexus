@@ -10,7 +10,7 @@ var knockknock = require('knock-knock-jokes')
 
 // DataBase
 var mongoose=require("mongoose");
-var mongoDB="mongodb://sk1234:sk1234@ds143163.mlab.com:43163/the_nexus";
+var mongoDB="mongodb://localhost:27017/the_nexus";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 // Models
